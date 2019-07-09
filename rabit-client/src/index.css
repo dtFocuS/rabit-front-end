@@ -77,3 +77,31 @@ a:hover {
   margin-bottom: 20px;
   color: #666666;
 }
+
+/* ACCOUNT CSS */
+
+#account-header {
+  margin-top: 50px;
+}
+
+#avatar-account-page {
+  height: 100px;
+  width: auto;
+  margin-right: 10px;
+}
+
+#your-tasks-account-page {
+  margin-top: 40px;
+  background-color: lightgrey;
+  width: 600px;
+  border-radius: 7px;
+  margin-bottom: 50px;
+}
+
+#username-account-page {
+  float: left;
+}
+
+#fullname-account-page {
+  float: left;
+}
