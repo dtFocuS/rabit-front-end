@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+import '../index.css';
 import SignupForm from '../components/SignupForm';
 
 class Login extends Component {
@@ -86,7 +86,7 @@ class Login extends Component {
 					<input type="submit" value="log in" />
 					<button type="button" onClick={this.logout}>log out</button>
 				</form>
-				
+
 				<div>
 					user: {this.state.user && this.state.user.username || 'logged out'}
 				</div>

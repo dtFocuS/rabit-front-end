@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* UNIVERSAL CSS */
+
+a {
+  color: #666666;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+/* HEADER CSS */
+
+#header-band {
+  background: #ACC0A6;
+  border-color: black;
+  border-bottom: .5px solid #e6e6e6;
+}
+
+#authentication-links {
+  float: right;
+  margin: 30px;
+}
+
+#rabit-logo {
+  height: auto;
+  width: 200px;
+}
+
+#navigation-links {
+  float: right;
+  margin-right: 30px;
+  margin-top: -30px;
+}
+
+
+/* HOME CSS */
+
+#home {
+  align: center;
+}
+
+#account-link {
+  margin-top: 30px;
+}
+
+#avatar {
+  float: left;
+  height: 50px;
+  margin-right: 10px;
+  width: auto;
+}
+
+#your-tasks {
+  margin-top: 40px;
+  background-color: lightgrey;
+  float: left;
+  width: 500px;
+  border-radius: 7px;
+  margin-right: 7%;
+  margin-bottom: 50px;
+}
+
+#available-tasks {
+  background-color: lightgrey;
+  float: left;
+  width: 500px;
+  border-radius: 7px;
+}
+
+.task-header {
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 20px;
+  color: #666666;
 }

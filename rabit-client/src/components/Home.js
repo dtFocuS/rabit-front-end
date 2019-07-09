@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Home.css';
+import '../index.css';
 
-import { BrowserRouter as Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as NavLink } from 'react-router-dom';
 
 class Home extends Component {
 

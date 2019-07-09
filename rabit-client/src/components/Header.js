@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Header.css';
-import rabit from './rabit-logo.png'
+import '../index.css';
+import rabit from '../rabit-logo.png'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
