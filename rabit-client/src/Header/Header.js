@@ -20,7 +20,12 @@ class Header extends Component {
         </div>
 
         <div>
-          <img id="rabit-logo" src={rabit} alt="Rabit" />
+          <NavLink
+            to="/"
+            exact
+            activeStyle={{
+            }}
+          ><img id="rabit-logo" src={rabit} alt="Rabit" /></NavLink>
         </div>
 
         <div id="navigation-links">
