@@ -88,11 +88,9 @@ class Login extends Component {
 					<input type="submit" value="log in" />
 					<button type="button" onClick={this.logout}>log out</button>
 				</form>
-<<<<<<< HEAD:rabit-client/src/components/Login.js
 
-=======
 					<p>Don't have an account? <span onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>
->>>>>>> ca4715164b3648cfb71e75c847f07509ae999ecc:rabit-client/src/Login/Login.js
+
 				<div>
 					user: {this.state.user && this.state.user.username || 'logged out'}
 				</div>
