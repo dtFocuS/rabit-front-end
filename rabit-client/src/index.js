@@ -9,7 +9,7 @@ import Login from './Login/Login';
 import Account from './Account/Account';
 
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 ReactDOM.render((
   <Router>

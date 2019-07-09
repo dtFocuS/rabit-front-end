@@ -1,0 +1,24 @@
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#header-band {
+  background: black;
+}
+
+#authentication-links {
+  float: right;
+  margin: 30px;
+}
+
+#rabit-logo {
+  height: auto;
+  width: 200px;
+}
+
+#navigation-links {
+  float: right;
+  margin-right: 30px;
+  margin-top: -30px;
+}
