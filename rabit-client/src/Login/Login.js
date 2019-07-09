@@ -4,7 +4,8 @@ import SignupForm from '../components/SignupForm';
 
 class Login extends Component {
 	state = {
-		username: ''
+		username: '',
+		modalShow: false
 	}
 
 	constructor() {
@@ -78,6 +79,7 @@ class Login extends Component {
 
 
 	render(){
+		let modalClose = () => this.setState({ modalShow: false });
   		return (
 			<div className="App">
 				<form onSubmit={this.login}>
@@ -86,11 +88,15 @@ class Login extends Component {
 					<input type="submit" value="log in" />
 					<button type="button" onClick={this.logout}>log out</button>
 				</form>
-				
+					<p>Don't have an account? <span onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>
 				<div>
 					user: {this.state.user && this.state.user.username || 'logged out'}
 				</div>
-					{this.state.user && <div>
+					<SignupForm
+						show={this.state.modalShow}
+						onHide={modalClose}
+					/>
+					{/* {this.state.user && <div>
 						<pre>
 							{'{\n'}
 							username: {this.state.user.username + '\n'}
@@ -98,7 +104,7 @@ class Login extends Component {
 							Location: {this.state.user.default_location + '\n'}
 							{'}\n'}
 						</pre>
-				</div>}
+				</div>} */}
 			</div>
   		);
   	}
