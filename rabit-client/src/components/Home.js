@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../index.css';
 
-import { BrowserRouter as NavLink } from 'react-router-dom';
+import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -24,7 +24,6 @@ class Home extends Component {
               activeStyle={{
               }}
             ><h1>account</h1></NavLink>
-
           </div>
 
           <div className="container" id="your-tasks">

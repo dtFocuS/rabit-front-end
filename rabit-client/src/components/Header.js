@@ -29,12 +29,22 @@ class Header extends Component {
         </div>
 
         <div id="navigation-links">
-          <NavLink
-            to="/account"
-            exact
-            activeStyle={{
-            }}
-          >account</NavLink>
+          <div className="nav-link">
+            <NavLink
+              to="/account"
+              exact
+              activeStyle={{
+              }}
+            >account</NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink
+              to="/"
+              exact
+              activeStyle={{
+              }}
+            >home</NavLink>
+          </div>
         </div>
       </div>
     );

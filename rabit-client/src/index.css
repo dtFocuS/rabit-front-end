@@ -30,9 +30,14 @@ a:hover {
 
 #navigation-links {
   float: right;
-  margin-right: 30px;
+  margin-right: 20px;
   margin-top: -30px;
 }
+
+ .nav-link {
+   display: inline;
+   margin: -10px;
+ }
 
 
 /* HOME CSS */
@@ -85,8 +90,8 @@ a:hover {
 }
 
 #avatar-account-page {
-  height: 100px;
-  width: auto;
+  height: auto;
+  width: 100px;
   margin-right: 10px;
 }
 
@@ -98,10 +103,20 @@ a:hover {
   margin-bottom: 50px;
 }
 
+#avatar-container-account-page {
+  float:left;
+  width: 125px;
+
+}
+
+#identifiers-account-page {
+
+}
+
 #username-account-page {
-  float: left;
+  /* float: left; */
 }
 
 #fullname-account-page {
-  float: left;
+  /* float: left; */
 }

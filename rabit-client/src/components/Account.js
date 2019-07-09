@@ -10,10 +10,17 @@ class Account extends Component {
       <div id="home">
         <div id="account-header" className="container">
 
-          <div className="row">
+          <div className="container" id="avatar-container-account-page">
             <img id="avatar-account-page" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmK2JrzaMkZJsK4SuRTgrWEiSFZBFd66UCrUrLJ53bh20Ag47nQw" alt="avatar" />
-            <h1 id="username-account-page">username</h1>
-            <p id="fullname-account-page">name</p>
+          </div>
+
+          <div className="container" id="identifiers-account-page">
+            <div className="row">
+              <h1 id="username-account-page">name</h1>
+            </div>
+            <div className="row">
+              <p id="fullname-account-page">username</p>
+            </div>
           </div>
 
           <div className="container" id="your-tasks-account-page">
