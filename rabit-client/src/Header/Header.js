@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Header.css';
 import rabit from './rabit-logo.png'
 
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Header extends Component {
 

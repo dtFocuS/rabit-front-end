@@ -1,33 +1,37 @@
-.Home {
-  text-align: center;
+#home {
+  align: center;
 }
 
-.Home-logo {
-  animation: Home-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#account-link {
+  margin-top: 10px;
 }
 
-.Home-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#avatar {
+  float: left;
+  height: 50px;
+  margin-right: 10px;
+  width: auto;
 }
 
-.Home-link {
-  color: #61dafb;
+#your-tasks {
+  background-color: lightgrey;
+  float: left;
+  width: 450px;
+  border-radius: 7px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 
-@keyframes Home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#available-tasks {
+  background-color: lightgrey;
+  float: left;
+  width: 450px;
+  border-radius: 7px;
+}
+
+.task-header {
+  background-color: grey;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 20px;
 }
