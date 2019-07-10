@@ -13,8 +13,9 @@ class Home extends Component {
     let modalClose = () => this.setState({ modalShow: false });
     return (
       <div id="home">
+
         <button type="button" class="btn btn-light" onClick={() => this.setState({ modalShow: true })}>Create Task</button>
-        <TaskForm 
+        <TaskForm
           show={this.state.modalShow}
           onHide={modalClose}
         />
