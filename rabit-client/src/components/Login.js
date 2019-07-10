@@ -102,7 +102,7 @@ class Login extends Component {
 					<button type="button" onClick={this.logout}>log out</button>
 				</form>
 
-					<p>Don't have an account? <span onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>
+					{this.state.user? null : <p>Don't have an account? <span onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>}
 
 				<div>
 					user: {this.state.user && this.state.user.username || 'logged out'}
