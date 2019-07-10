@@ -10,10 +10,13 @@ a:hover {
   text-decoration: none;
 }
 
+input.minutes {
+  width: 70px;
+}
 
 .displayErrors input:invalid {
   border-color: pink;
-
+}
 textarea:hover,
 input:hover,
 textarea:active,
