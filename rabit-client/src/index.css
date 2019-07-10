@@ -10,6 +10,10 @@ a:hover {
   text-decoration: none;
 }
 
+
+.displayErrors input:invalid {
+  border-color: pink;
+
 textarea:hover,
 input:hover,
 textarea:active,
@@ -25,8 +29,12 @@ label:focus,
 {
     outline:0px !important;
     -webkit-appearance:none;
+<<<<<<< HEAD
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
+=======
+
+>>>>>>> ce1b068509aaf8bc7537ef38b253f43b69152eeb
 }
 
 
