@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../index.css';
 import rabit from '../rabit-logo.png'
+import { Dropdown, DropdownButton } from 'react-bootstrap'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ class Header extends Component {
   constructor() {
 		super()
     this.state = {
-      user: null
+      username: ""
     }
   }
 
@@ -24,7 +25,9 @@ class Header extends Component {
     })
     .then(res => res.json())
     .then(json => {
-      this.setState({user: json.user});
+      if (json.user) {
+        this.setState({username: json.user.username});
+      }
     })
   }
 
@@ -32,38 +35,53 @@ class Header extends Component {
     this.fetchUser()
   }
 
+  loggedIn = () => {
+    if (localStorage.getItem('jwt') !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  authenticationLink = () => {
+    if (this.loggedIn()) {
+      return (
+
+        <div id="header-dropdown-button">
+        <DropdownButton
+          alignRight
+          title={"@" + this.state.username + " " }
+          id="dropdown-menu-align-right"
+          >
+            <Dropdown.Item href="/">Home</Dropdown.Item>
+            <Dropdown.Item href="/account">Edit Account</Dropdown.Item>
+            <Dropdown.Item href="/login">Log Out</Dropdown.Item>
+        </DropdownButton>
+      </div>)
+    } else {
+      return (<p id="authentication-links">
+        <NavLink
+          style={{color: "whitesmoke"}}
+          to="/login"
+          exact
+          activeStyle={{
+          }}
+        >login</NavLink>
+      </p>)
+    }
+  }
+
 
   render(){
-
-    function loggedIn() {
-      if (localStorage.getItem('jwt') !== '') {
-        return true
-      } else {
-        return false
-      }
-    }
-
-    function authenticationLink() {
-      if (loggedIn()) {
-        return "log out"
-      } else {
-        return "login"
-      }
-    }
 
     return (
 
       <div id="header-band">
-        <p id="authentication-links">
-          <NavLink
-            to="/login"
-            exact
-            activeStyle={{
-            }}
-          >{authenticationLink()}</NavLink>
-        </p>
 
-        <div>
+        {this.authenticationLink()}
+
+
+        <div id="rabit-logo-wrapper">
           <NavLink
             to="/"
             exact
@@ -72,24 +90,7 @@ class Header extends Component {
           ><img id="rabit-logo" src={rabit} alt="Rabit" /></NavLink>
         </div>
 
-        <div id="navigation-links">
-          <h4 className="nav-link">
-            <NavLink
-              to="/account"
-              exact
-              activeStyle={{
-              }}
-            >account</NavLink>
-          </h4>
-          <h4 className="nav-link">
-            <NavLink
-              to="/"
-              exact
-              activeStyle={{
-              }}
-            >home</NavLink>
-          </h4>
-        </div>
+
       </div>
     );
   }

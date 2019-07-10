@@ -10,8 +10,26 @@ a:hover {
   text-decoration: none;
 }
 
+
 .displayErrors input:invalid {
   border-color: pink;
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+
 }
 
 /* HEADER CSS */
@@ -25,25 +43,33 @@ a:hover {
 
 #authentication-links {
   float: right;
-  margin-right: 30px;
-  margin-top: 10px;
+  margin-right: 50px;
+  margin-top:11px;
+  font-size: 23px;
+  font-weight: lighter;
 }
 
+#header-dropdown-button {
+  float:right;
+  margin-right: 35px;
+  margin-top:7px;
+}
+
+#dropdown-menu-align-right {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+#rabit-logo-wrapper {
+  float:left;
+  margin-left: 30px;
+}
 #rabit-logo {
-  height: 75px;
-  width: auto;
+  height: 80px;
 }
-
-#navigation-links {
-  float: right;
-  margin-right: 20px;
-  margin-top: -30px;
-}
-
- .nav-link {
-   display: inline;
-   margin: -10px;
- }
 
 
 /* HOME CSS */
@@ -129,4 +155,42 @@ button.btn.btn-light {
   margin-bottom: 20px;
   color: #666666;
   padding: 20px;
+}
+
+
+/* LOGIN CSS */
+
+.App {
+  text-align: center;
+  margin-top: 30px;
+}
+
+::placeholder {
+
+  color: lightgrey;
+
+}
+
+#username-entry, #password-entry {
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+#logout-button, #submit-button {
+  font-size: 25px;
+  border-radius: 7px;
+  font-weight: lighter;
+
+}
+
+#logged-in-username {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+#sign-up {
+  font-weight: lighter;
+}
+#sign-up-button {
+  cursor: pointer;
 }

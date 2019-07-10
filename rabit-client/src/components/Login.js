@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import '../index.css';
 import SignupForm from '../components/SignupForm';
 
+import { BrowserRouter as Route, withRouter } from 'react-router-dom';
+
 class Login extends Component {
 	state = {
-		username: '',
+		user: null,
+		username: null,
 		modalShow: false
 	}
 
@@ -42,12 +45,14 @@ class Login extends Component {
 				this.getProfile()
 			}
 		})
+		.then(() => {
+			this.props.history.push('/')
+		})
 	}
 
 	logout() {
-		this.clearToken()
-		this.setState({ username: '' })
-		return false
+		this.clearToken();
+		this.setState({ user: null })
 	}
 
 	getProfile = () => {
@@ -89,41 +94,52 @@ class Login extends Component {
 
 	}
 
+	loginForm() {
+		return <form onSubmit={this.login}>
+			<input className="border-top-0 border-right-0 border-left-0"id="username-entry" type="text" placeholder="username" ref={this.username} /><br/><br/>
+			<input className="border-top-0 border-right-0 border-left-0" id="password-entry" type="password" placeholder="password" ref={this.password} /><br/><br/>
+			<input id="submit-button" type="submit" value="log in" /><br/>
+		</form>
+	}
 
+	logoutArea() {
+		return <div>
+			<div id="logged-in-username">
+				{this.state.user && "@" + this.state.user.username || null}
+			</div>
+
+			<br/>
+			{this.state.user? <button id="logout-button" type="button" onClick={this.logout}>log out</button> : null}
+		</div>
+	}
 
 	render(){
 		let modalClose = () => this.setState({ modalShow: false });
   		return (
-			<div className="App">
-				<form onSubmit={this.login}>
-					<input type="text" placeholder="username" ref={this.username} />
-					<input type="password" placeholder="password" ref={this.password} />
-					<input type="submit" value="log in" />
-					<button type="button" onClick={this.logout}>log out</button>
-				</form>
+		 	<div className="App">
 
-					{this.state.user? null : <p>Don't have an account? <span onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>}
+				{this.state.user ? this.logoutArea() : this.loginForm()}
 
-				<div>
-					user: {this.state.user && this.state.user.username || 'logged out'}
+				<div id="sign-up">
+						{this.state.user? null : <p>Don't have an account? <span id="sign-up-button" onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>}
+						<SignupForm
+							show={this.state.modalShow}
+							onHide={modalClose}
+							onCreate={this.handleCreate}
+						/>
+						{/* {this.state.user && <div>
+							<pre>
+								{'{\n'}
+								username: {this.state.user.username + '\n'}
+								star rating: {this.state.user.star_rating + '\n'}
+								Location: {this.state.user.default_location + '\n'}
+								{'}\n'}
+							</pre>
+					</div>} */}
 				</div>
-					<SignupForm
-						show={this.state.modalShow}
-						onHide={modalClose}
-						onCreate={this.handleCreate}
-					/>
-					{/* {this.state.user && <div>
-						<pre>
-							{'{\n'}
-							username: {this.state.user.username + '\n'}
-							star rating: {this.state.user.star_rating + '\n'}
-							Location: {this.state.user.default_location + '\n'}
-							{'}\n'}
-						</pre>
-				</div>} */}
 			</div>
   		);
   	}
 };
 
-export default Login;
+export default withRouter(Login)
