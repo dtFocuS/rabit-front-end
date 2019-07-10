@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../index.css';
 
-import { BrowserRouter as NavLink } from 'react-router-dom';
-
 class Account extends Component {
 
   render(){
@@ -14,7 +12,7 @@ class Account extends Component {
             <img id="avatar-account-page" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmK2JrzaMkZJsK4SuRTgrWEiSFZBFd66UCrUrLJ53bh20Ag47nQw" alt="avatar" />
           </div>
 
-          <div className="container" id="identifiers-account-page">
+          <div className="container">
             <div className="row">
               <h1 id="username-account-page">name</h1>
             </div>
@@ -23,24 +21,19 @@ class Account extends Component {
             </div>
           </div>
 
-          <div className="container" id="your-tasks-account-page">
+          <div className="container col-sm-12 " id="your-tasks-account-page">
 
-            <div className="row task-header">
-              <div className="col-sm-12">
-                <h2>your tasks</h2>
-              </div>
+            <div className="row task-header-account-page">
+              <h2>your tasks</h2>
             </div>
 
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
+
           </div>
         </div>
       </div>

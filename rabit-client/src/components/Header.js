@@ -6,18 +6,62 @@ import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
+  constructor() {
+		super()
+    this.state = {
+      user: null
+    }
+  }
+
+
+  fetchUser = () => {
+    console.log(this)
+    fetch('http://localhost:3000/api/v1/profile', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then(res => res.json())
+    .then(json => {
+      this.setState({user: json.user});
+    })
+  }
+
+  componentDidMount() {
+    this.fetchUser()
+  }
+
+
   render(){
+
+    function loggedIn() {
+      if (localStorage.getItem('jwt') !== '') {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    function authenticationLink() {
+      if (loggedIn()) {
+        return "log out"
+      } else {
+        return "login"
+      }
+    }
+
     return (
 
       <div id="header-band">
-        <div id="authentication-links">
+        <p id="authentication-links">
           <NavLink
             to="/login"
             exact
             activeStyle={{
             }}
-          >login</NavLink>
-        </div>
+          >{authenticationLink()}</NavLink>
+        </p>
 
         <div>
           <NavLink
@@ -29,22 +73,22 @@ class Header extends Component {
         </div>
 
         <div id="navigation-links">
-          <div className="nav-link">
+          <h4 className="nav-link">
             <NavLink
               to="/account"
               exact
               activeStyle={{
               }}
             >account</NavLink>
-          </div>
-          <div className="nav-link">
+          </h4>
+          <h4 className="nav-link">
             <NavLink
               to="/"
               exact
               activeStyle={{
               }}
             >home</NavLink>
-          </div>
+          </h4>
         </div>
       </div>
     );

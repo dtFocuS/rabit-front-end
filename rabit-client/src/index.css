@@ -16,16 +16,18 @@ a:hover {
   background: #ACC0A6;
   border-color: black;
   border-bottom: .5px solid #e6e6e6;
+  height: 85px;
 }
 
 #authentication-links {
   float: right;
-  margin: 30px;
+  margin-right: 30px;
+  margin-top: 10px;
 }
 
 #rabit-logo {
-  height: auto;
-  width: 200px;
+  height: 75px;
+  width: auto;
 }
 
 #navigation-links {
@@ -81,6 +83,7 @@ a:hover {
   border-top-right-radius: 7px;
   margin-bottom: 20px;
   color: #666666;
+  padding: 15px;
 }
 
 /* ACCOUNT CSS */
@@ -109,14 +112,12 @@ a:hover {
 
 }
 
-#identifiers-account-page {
-
-}
-
-#username-account-page {
-  /* float: left; */
-}
-
-#fullname-account-page {
-  /* float: left; */
+.task-header-account-page {
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 20px;
+  color: #666666;
+  padding: 20px;
 }

@@ -26,44 +26,32 @@ class Home extends Component {
             ><h1>account</h1></NavLink>
           </div>
 
-          <div className="container" id="your-tasks">
+          <div className="container col-sm-12 " id="your-tasks">
 
             <div className="row task-header">
-              <div className="col-sm-12">
                 <h2>your tasks</h2>
-              </div>
             </div>
 
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
           </div>
 
 
-          <div className="container" id="available-tasks">
+          <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
-              <div className="col-sm-12">
-                <h2>available tasks</h2>
-              </div>
+              <h2>available tasks</h2>
             </div>
 
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
-            <div className="row">
-              <div className="col-sm-12">
+            <div className="row col-sm-12">
                 <p>open task</p>
-              </div>
             </div>
           </div>
         </div>
