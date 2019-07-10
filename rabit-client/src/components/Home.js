@@ -9,6 +9,10 @@ class Home extends Component {
     modalShow: false
   }
 
+  createTask = (newTask) => {
+    console.log(newTask);
+  }
+
   render(){
     let modalClose = () => this.setState({ modalShow: false });
     return (
@@ -17,6 +21,7 @@ class Home extends Component {
         <TaskForm 
           show={this.state.modalShow}
           onHide={modalClose}
+          onCreateTask={this.createTask}
         />
         <div id="account-link" className="container">
 

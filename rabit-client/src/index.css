@@ -10,6 +10,10 @@ a:hover {
   text-decoration: none;
 }
 
+.displayErrors input:invalid {
+  border-color: pink;
+}
+
 /* HEADER CSS */
 
 #header-band {
