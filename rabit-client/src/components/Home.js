@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div id="home">
 
-        <button type="button" class="btn btn-light" onClick={() => this.setState({ modalShow: true })}>Create Task</button>
+        <button id="create-task-button" type="button" className="btn btn-light" onClick={() => this.setState({ modalShow: true })}>Create Task</button>
         <TaskForm
           show={this.state.modalShow}
           onHide={modalClose}
@@ -34,19 +34,19 @@ class Home extends Component {
               exact
               activeStyle={{
               }}
-            ><h1>account</h1></NavLink>
+            ><h1 id="account-name">account</h1></NavLink>
           </div>
 
           <div className="container col-sm-12 " id="your-tasks">
 
             <div className="row task-header">
-                <h2>your tasks</h2>
+                <h2 id="your-tasks-title">your tasks</h2>
             </div>
 
-            <div className="row col-sm-12">
+            <div className="task row">
                 <p>open task</p>
             </div>
-            <div className="row col-sm-12">
+            <div className="task row">
                 <p>open task</p>
             </div>
           </div>
@@ -55,13 +55,13 @@ class Home extends Component {
           <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
-              <h2>available tasks</h2>
+              <h2 id="available-tasks-title">available tasks</h2>
             </div>
 
-            <div className="row col-sm-12">
+            <div className="task row">
                 <p>open task</p>
             </div>
-            <div className="row col-sm-12">
+            <div className="task row">
                 <p>open task</p>
             </div>
           </div>

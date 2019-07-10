@@ -95,11 +95,22 @@ class Login extends Component {
 	}
 
 	loginForm() {
-		return <form onSubmit={this.login}>
-			<input className="border-top-0 border-right-0 border-left-0"id="username-entry" type="text" placeholder="username" ref={this.username} /><br/><br/>
-			<input className="border-top-0 border-right-0 border-left-0" id="password-entry" type="password" placeholder="password" ref={this.password} /><br/><br/>
-			<input id="submit-button" type="submit" value="log in" /><br/>
-		</form>
+		let modalClose = () => this.setState({ modalShow: false });
+		return <div>
+			<form onSubmit={this.login}>
+				<input className="border-top-0 border-right-0 border-left-0"id="username-entry" type="text" placeholder="username" ref={this.username} /><br/><br/>
+				<input className="border-top-0 border-right-0 border-left-0" id="password-entry" type="password" placeholder="password" ref={this.password} /><br/><br/>
+				<input id="submit-button" type="submit" value="log in" /><br/>
+			</form><br/>
+			<div id="sign-up">
+					<p>Don't have an account? <span id="sign-up-button" onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>
+					<SignupForm
+						show={this.state.modalShow}
+						onHide={modalClose}
+						onCreate={this.handleCreate}
+					/>
+			</div>
+		</div>
 	}
 
 	logoutArea() {
@@ -114,29 +125,11 @@ class Login extends Component {
 	}
 
 	render(){
-		let modalClose = () => this.setState({ modalShow: false });
   		return (
 		 	<div className="App">
 
 				{this.state.user ? this.logoutArea() : this.loginForm()}
 
-				<div id="sign-up">
-						{this.state.user? null : <p>Don't have an account? <span id="sign-up-button" onClick={() => this.setState({ modalShow: true })}>Sign Up</span></p>}
-						<SignupForm
-							show={this.state.modalShow}
-							onHide={modalClose}
-							onCreate={this.handleCreate}
-						/>
-						{/* {this.state.user && <div>
-							<pre>
-								{'{\n'}
-								username: {this.state.user.username + '\n'}
-								star rating: {this.state.user.star_rating + '\n'}
-								Location: {this.state.user.default_location + '\n'}
-								{'}\n'}
-							</pre>
-					</div>} */}
-				</div>
 			</div>
   		);
   	}
