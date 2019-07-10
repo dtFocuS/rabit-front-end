@@ -22,7 +22,9 @@ class SignupForm extends Component {
             this.setState({
                 valid: true
             })
+            this.props.onCreate(this.state)
         }
+
 
     }
 
@@ -51,7 +53,7 @@ class SignupForm extends Component {
                         <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} />
                         <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} />
                         <input type="text" id="location" placeholder="Location" onChange={this.handleChange} />
-                        <Button type="submit" onClick={this.state.valid ? this.props.onHide : null}>Create</Button>
+                        <Button type="submit" onClick={this.props.onHide}>Create</Button>
                     </form>
                     
                 </Modal.Body>
