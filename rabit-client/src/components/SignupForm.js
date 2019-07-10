@@ -10,14 +10,14 @@ class SignupForm extends Component {
             name: "",
             username: "",
             password: "",
-            location: "",
+            default_location: "",
             valid: false
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.name !== "" && this.state.username !== "" && this.state.password !== "" && this.state.location !=="") {
+        if (this.state.name !== "" && this.state.username !== "" && this.state.password !== "" && this.state.default_location !=="") {
             console.log(this.state.valid)
             this.setState({
                 valid: true
@@ -49,10 +49,10 @@ class SignupForm extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange} />
-                        <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} />
-                        <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} />
-                        <input type="text" id="location" placeholder="Location" onChange={this.handleChange} />
+                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange} required/>
+                        <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} required/>
+                        <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} required/>
+                        <input type="text" id="default_location" placeholder="Location" onChange={this.handleChange} required/>
                         <Button type="submit" onClick={this.props.onHide}>Create</Button>
                     </form>
                     

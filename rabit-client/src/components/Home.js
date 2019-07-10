@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import '../index.css';
+import TaskForm from './TaskForm'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Home extends Component {
+  state = {
+    modalShow: false
+  }
 
   render(){
+    let modalClose = () => this.setState({ modalShow: false });
     return (
       <div id="home">
+        <button type="button" class="btn btn-light" onClick={() => this.setState({ modalShow: true })}>Create Task</button>
+        <TaskForm 
+          show={this.state.modalShow}
+          onHide={modalClose}
+        />
         <div id="account-link" className="container">
 
           <div className="row">

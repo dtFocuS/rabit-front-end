@@ -1,6 +1,6 @@
 /* UNIVERSAL CSS */
 
-a {
+a, span {
   color: #666666;
   text-decoration: none;
 }
@@ -84,6 +84,11 @@ a:hover {
   margin-bottom: 20px;
   color: #666666;
   padding: 15px;
+}
+
+button.btn.btn-light {
+  position: relative;
+  right: -1200px;
 }
 
 /* ACCOUNT CSS */
