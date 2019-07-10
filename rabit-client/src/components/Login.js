@@ -76,6 +76,19 @@ class Login extends Component {
 		return localStorage.getItem('jwt')
 	}
 
+	handleCreate = (newUser) => {
+		fetch('http://localhost:3000/api/v1/users', {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ user: {...newUser } })
+		})
+		.then(resp => resp.json())
+		.then(json => {this.setState({ user: json.user })})
+
+	}
+
 
 
 	render(){
@@ -97,6 +110,7 @@ class Login extends Component {
 					<SignupForm
 						show={this.state.modalShow}
 						onHide={modalClose}
+						onCreate={this.handleCreate}
 					/>
 					{/* {this.state.user && <div>
 						<pre>
