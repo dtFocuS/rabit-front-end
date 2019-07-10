@@ -3,11 +3,21 @@ import { Modal, Button } from 'react-bootstrap';
 
 
 class SignupForm extends Component {
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+    }
+
+    handleChange = (event) => {
+        console.log(event.target.value)
+    }
+
     render() {
         return (
             <Modal
                 {...this.props}
-                size="lg"
+                size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -17,15 +27,17 @@ class SignupForm extends Component {
           </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>Centered Modal</h4>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-                        ac consectetur ac, vestibulum at eros.
-                    </p>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange}/>
+                        <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} />
+                        <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} />
+                        <input type="text" id="location" placeholder="Location" onChange={this.handleChange} />
+
+                    </form>
+                    <Button onClick={this.props.onHide}>Create</Button>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={this.props.onHide}>Close</Button>
+                    
                 </Modal.Footer>
             </Modal>
         );
