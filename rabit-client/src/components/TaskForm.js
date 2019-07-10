@@ -3,12 +3,24 @@ import { Modal, Button } from 'react-bootstrap';
 
 class TaskForm extends Component {
 
+    handleClick = (event) => {
+        this.props.onHide();
+
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        if (!event.target.checkValidity()) {
+            
+        }
+    }
+
     render() {
         return(
 
             <Modal
                 {...this.props}
-                size="md"
+                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -19,11 +31,15 @@ class TaskForm extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange} />
-                        <input type="text" id="username" placeholder="Username" onChange={this.handleChange} />
-                        <input type="password" id="password" placeholder="Password" onChange={this.handleChange} />
-                        <input type="text" id="default_location" placeholder="Location" onChange={this.handleChange} />
-                        <Button type="submit" onClick={this.props.onHide}>Create</Button>
+                        <input type="text" id="name" placeholder="Name" onChange={this.handleChange} required/>
+                        <input type="textarea" id="description" placeholder="Description" onChange={this.handleChange} required/>
+                        <input type="text" id="address" placeholder="Address" onChange={this.handleChange} required/>
+                        <input type="text" id="city" placeholder="City" onChange={this.handleChange} required/>
+                        <input type="text" id="state" placeholder="State" onChange={this.handleChange} required/>
+                        <input type="text" id="zip_code" placeholder="Zip Code" onChange={this.handleChange} required/>
+                        <input type="text" id="prefer_cost" placeholder="Cost" onChange={this.handleChange} required/>
+                        <input tyep="text" id="completed_by" placeholder=""/>
+                        <Button type="submit" onClick={this.handleClick}>Create</Button>
                     </form>
 
                 </Modal.Body>
