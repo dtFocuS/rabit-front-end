@@ -4,20 +4,39 @@ import { Modal, Button } from 'react-bootstrap';
 
 class SignupForm extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            username: "",
+            password: "",
+            location: "",
+            valid: false
+        }
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
+        if (this.state.name !== "" && this.state.username !== "" && this.state.password !== "" && this.state.location !=="") {
+            console.log(this.state.valid)
+            this.setState({
+                valid: true
+            })
+        }
 
     }
 
     handleChange = (event) => {
-        console.log(event.target.value)
+        this.setState({
+            [event.target.id]: event.target.value
+        })
     }
 
     render() {
         return (
             <Modal
                 {...this.props}
-                size="sm"
+                size="md"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -28,13 +47,13 @@ class SignupForm extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange}/>
+                        <input type="text" id="name" placeholder="Full Name" onChange={this.handleChange} />
                         <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} />
                         <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} />
                         <input type="text" id="location" placeholder="Location" onChange={this.handleChange} />
-
+                        <Button type="submit" onClick={this.state.valid ? this.props.onHide : null}>Create</Button>
                     </form>
-                    <Button onClick={this.props.onHide}>Create</Button>
+                    
                 </Modal.Body>
                 <Modal.Footer>
                     
