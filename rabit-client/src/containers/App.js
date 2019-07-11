@@ -17,7 +17,8 @@ class App extends Component {
         super();
         this.state = {
             user: null,
-            user_id: null
+            user_id: null,
+            tasks: []
         }
         //this.getProfile = this.getProfile.bind(this)
     }
@@ -34,52 +35,25 @@ class App extends Component {
         this.getProfile();
     }
 
-    // getUserToken = () => {
-    //     return localStorage.getItem('jwt');
-    // }
 
-    // state = {
-    //     user: null,
-    //     username: null
-    // }
-
-    // constructor() {
-    //     super()
-    //     this.username = React.createRef()
-    //     this.password = React.createRef()
-
-    //     if (this.getToken()) {
-    //         this.getProfile()
-    //     }
-
-    //     this.logout = this.logout.bind(this)
-    // }
-
-    // login = (event) => {
-    //     event.preventDefault()
-    //     console.log('log in')
-    //     let username = event.target[0].value
-    //     let password = event.target[1].value
-
-    //     fetch('http://localhost:3000/api/v1/login', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ user: { username, password } })
-    //     })
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             console.log('login:', json)
-    //             if (json && json.jwt) {
-    //                 this.saveToken(json.jwt)
-    //                 this.getProfile()
-    //             }
-    //         })
-    //         .then(() => {
-    //             this.props.history.push('/')
-    //         })
-    // }
+    createTask = (newTask) => {
+        const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
+        const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
+        fetch("http://localhost:3000/api/v1/tasks", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: newTask.zip_code, prefer_cost: dollarAmount, completed_by: time, user_id: this.state.user.id} })
+        })
+        .then(resp => resp.json())
+        .then(task => {
+            console.log(task)
+            this.setState(prevState => {
+                tasks: prevState.tasks.push(task)
+            })
+        })
+    }
 
     logout = () => {
         //this.clearToken();
@@ -156,8 +130,13 @@ class App extends Component {
         return(
             <Router>
                 <React.Fragment>
+<<<<<<< HEAD
                     <Header currentUser={this.state.user}/>
                     <Route exact path="/" render={routerProps => <Home {...routerProps} />} currentUser={this.state.user} />
+=======
+                    <Header />
+                    <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask}/>} />
+>>>>>>> 03a61cbab73fc7bab88ac1a439831f1e7067c7fa
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
                     <Route exact path="/account" render={routerProps => <Account {...routerProps} currentUser={this.state.user}/>} />
                 </React.Fragment>
