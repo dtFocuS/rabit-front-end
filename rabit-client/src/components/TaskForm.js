@@ -71,7 +71,7 @@ class TaskForm extends Component {
 
               <Col>
                 <InputGroup className="mb-3">
-                  <FormControl id="zip-code" placeholder="Zip Code" onChange={this.handleChange} required />
+                  <FormControl id="zip_code" placeholder="Zip Code" onChange={this.handleChange} required />
                 </InputGroup>
               </Col>
             </Row>
