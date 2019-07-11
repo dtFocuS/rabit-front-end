@@ -65,7 +65,7 @@ class Login extends Component {
 		.then(res => res.json())
 		.then(json => {
 				console.log('profile:', json)
-				this.setState({ user: json.user })
+				this.setState({ user: json.user }, () => {this.props.onGetUser(this.state)})
 		})
 	}
 
