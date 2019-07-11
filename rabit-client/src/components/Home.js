@@ -20,9 +20,9 @@ class Home extends Component {
 
 
   createTask = (newTask) => {
-    console.log(newTask);
+    //console.log(newTask);
     const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-    console.log(this.props.currentUserId);
+    //console.log(this.props.currentUserToken());
     const dollarAmount = parseFloat(newTask.prefer_cost);
     // fetch("http://localhost:3000/api/v1/tasks", {
     //   method: "POST",

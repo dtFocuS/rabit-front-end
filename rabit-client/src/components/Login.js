@@ -6,21 +6,19 @@ import { BrowserRouter as Route, withRouter } from 'react-router-dom';
 
 class Login extends Component {
 	state = {
-		user: null,
-		username: null,
 		modalShow: false
 	}
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.username = React.createRef()
 		this.password = React.createRef()
 
-		if (this.getToken()) {
-			this.getProfile()
-		}
+		// if (this.getToken()) {
+		// 	this.props.onGetProfile()
+		// }
 
-		this.logout = this.logout.bind(this)
+		//this.logout = this.logout.bind(this)
 	}
 
 	login = (ev) => {
@@ -42,7 +40,7 @@ class Login extends Component {
 			console.log('login:', json)
 			if (json && json.jwt) {
 				this.saveToken(json.jwt)
-				this.getProfile()
+				this.props.onGetProfile()
 			}
 		})
 		.then(() => {
@@ -50,24 +48,24 @@ class Login extends Component {
 		})
 	}
 
-	logout() {
+	logoutUser = () => {
 		this.clearToken();
-		this.setState({ user: null })
+		this.props.handleLogout();
 	}
 
-	getProfile = () => {
-		let token = this.getToken()
-		fetch('http://localhost:3000/api/v1/profile', {
-			headers: {
-				'Authorization': 'Bearer ' + token
-			}
-		})
-		.then(res => res.json())
-		.then(json => {
-				console.log('profile:', json)
-				this.setState({ user: json.user }, () => {this.props.onGetUser(this.state)})
-		})
-	}
+	// getProfile = () => {
+	// 	let token = this.getToken()
+	// 	fetch('http://localhost:3000/api/v1/profile', {
+	// 		headers: {
+	// 			'Authorization': 'Bearer ' + token
+	// 		}
+	// 	})
+	// 	.then(res => res.json())
+	// 	.then(json => {
+	// 			console.log('profile:', json)
+	// 			this.setState({ user: json.user }, () => {this.props.onGetUser(this.state)})
+	// 	})
+	// }
 
 	saveToken(jwt) {
 		localStorage.setItem('jwt', jwt)
@@ -77,22 +75,22 @@ class Login extends Component {
 		localStorage.setItem('jwt', '')
 	}
 
-	getToken(jwt) {
-		return localStorage.getItem('jwt')
-	}
+	// getToken(jwt) {
+	// 	return localStorage.getItem('jwt')
+	// }
 
-	handleCreate = (newUser) => {
-		fetch('http://localhost:3000/api/v1/users', {
-			method: "POST",
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ user: {...newUser } })
-		})
-		.then(resp => resp.json())
-		.then(json => {this.setState({ user: json.user })})
+	// handleCreate = (newUser) => {
+	// 	fetch('http://localhost:3000/api/v1/users', {
+	// 		method: "POST",
+	// 		headers: {
+	// 			'Content-Type': 'application/json'
+	// 		},
+	// 		body: JSON.stringify({ user: {...newUser } })
+	// 	})
+	// 	.then(resp => resp.json())
+	// 	.then(json => {this.setState({ user: json.user })})
 
-	}
+	// }
 
 	loginForm() {
 		let modalClose = () => this.setState({ modalShow: false });
@@ -107,7 +105,7 @@ class Login extends Component {
 					<SignupForm
 						show={this.state.modalShow}
 						onHide={modalClose}
-						onCreate={this.handleCreate}
+						onCreate={this.props.onHandleCreate}
 					/>
 			</div>
 		</div>
@@ -116,11 +114,11 @@ class Login extends Component {
 	logoutArea() {
 		return <div>
 			<div id="logged-in-username">
-				{this.state.user && "@" + this.state.user.username || null}
+				{this.props.currentUser && "@" + this.props.currentUser.username || null}
 			</div>
 
 			<br/>
-			{this.state.user? <button id="logout-button" type="button" onClick={this.logout}>log out</button> : null}
+			{this.props.currentUser ? <button id="logout-button" type="button" onClick={this.logoutUser}>log out</button> : null}
 		</div>
 	}
 
@@ -128,11 +126,11 @@ class Login extends Component {
   		return (
 		 	<div className="App">
 
-				{this.state.user ? this.logoutArea() : this.loginForm()}
+				{this.props.currentUser ? this.logoutArea() : this.loginForm()}
 
 			</div>
   		);
   	}
 };
 
-export default withRouter(Login)
+export default withRouter(Login);
