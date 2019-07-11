@@ -5,22 +5,21 @@ import { Modal, Button, Form, InputGroup, FormControl, Row, Col } from 'react-bo
 
 class TaskForm extends Component {
   state = {
-      hours: "12",
-      minutes: "00",
-      ampm: "AM"
-
+    hours: "12",
+    minutes: "00",
+    ampm: "AM"
   }
 
   handleSubmit = (event) => {
-      event.preventDefault();
-      if (!event.target.checkValidity()) {
-          this.setState({ displayErrors: true });
-          return;
-      } else {
-          this.setState({ displayErrors: false });
-          this.props.onHide();
-          this.props.onCreateTask(this.state);
-      }
+    event.preventDefault();
+    if (!event.target.checkValidity()) {
+      this.setState({ displayErrors: true });
+      return;
+    } else {
+      this.setState({ displayErrors: false });
+      this.props.onHide();
+      this.props.onCreateTask(this.state);
+    }
   }
 
   handleChange = (event) => {
