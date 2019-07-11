@@ -65,6 +65,8 @@ class Account extends Component {
               <p id="username-account-page">@username</p>
             </div>
           </div>
+        </div>
+        <div id="body">
           <div className="container col-sm-12" id="your-tasks-account-page">
 
             <div className="row task-header-account-page">
