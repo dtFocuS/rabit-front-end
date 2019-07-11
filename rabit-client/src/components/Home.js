@@ -15,6 +15,18 @@ class Home extends Component {
 
   createTask = (newTask) => {
     console.log(newTask);
+    const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
+    console.log(time);
+    const dollarAmount = parseFloat(newTask.prefer_cost);
+    // fetch("http://localhost:3000/api/v1/tasks", {
+    //   method: "POST",
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: newTask.zip_code, prefer_cost: dollarAmount, completed_by: time} })
+    // })
+    // .then(resp => resp.json())
+    // .then(json => {})
   }
 
   createBid = (newBid) => {
