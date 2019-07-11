@@ -46,11 +46,13 @@ label:focus,
 
 /* HEADER CSS */
 
+/* background: #258EA6; #2274A5*/
+
 #header-band {
-  background: #ACC0A6;
+  background: #816C61;
   border-color: black;
   border-bottom: .5px solid #e6e6e6;
-  height: 85px;
+  height: 120px;
 }
 
 #authentication-links {
@@ -80,7 +82,7 @@ label:focus,
   margin-left: 30px;
 }
 #rabit-logo {
-  height: 80px;
+  height: 130px;
 }
 
 
@@ -113,7 +115,7 @@ label:focus,
 
 #your-tasks {
   margin-top: 40px;
-  background-color: lightgrey;
+  background-color: #FEFFFE;
   float: left;
   width: 500px;
   border-radius: 3px;
@@ -123,7 +125,7 @@ label:focus,
 
 #available-tasks {
   margin-top: 40px;
-  background-color: lightgrey;
+  background-color: #FEFFFE;
   float: right;
   width: 500px;
   border-radius: 3px;
@@ -133,7 +135,7 @@ label:focus,
 
 .task-header {
 
-  background-color: whitesmoke;
+  background-color: #BFD7EA;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #666666;
@@ -146,7 +148,10 @@ label:focus,
 
 .task {
   border-top: .5px solid #e6e6e6;
-  padding: 10px;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 47px;
 }
 
 .task-title {
@@ -158,20 +163,24 @@ label:focus,
   padding-top: 7.5px;
 }
 .edit-task {
+  width: 45px;
+  height: 25px;
   margin-left: auto;
   margin-right: 5px;
-  color: green;
+  color: #ACC0A6;
   margin-top: 2px;
   font-size: 14px;
   border:none;
-  background: none;
+  border-radius: 7px;
 }
 .add-task {
+  width: 30px;
+  height: 30px;
   margin-left: auto;
   margin-right: 5px;
-  color: green;
+  color: #ACC0A6;
   border:none;
-  background: none;
+  border-radius: 50%;
 }
 
 /* ACCOUNT CSS */

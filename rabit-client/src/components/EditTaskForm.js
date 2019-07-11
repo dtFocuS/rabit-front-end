@@ -75,18 +75,11 @@ class EditTaskForm extends Component {
               </Col>
             </Row>
 
-            <InputGroup className="mb-3">
-              <InputGroup.Prepend>
-                <InputGroup.Text>$</InputGroup.Text>
-              </InputGroup.Prepend>
-
-              <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
-            </InputGroup>
-
             <InputGroup>
               <FormControl id="description" placeholder="Description" onChange={this.handleChange} required as="textarea" aria-label="With textarea" />
             </InputGroup>
 
+            <br/>
             <br/>
             <h6>Prefered Time</h6>
 
@@ -136,7 +129,13 @@ class EditTaskForm extends Component {
               </Form.Group>
             </Form.Row>
 
-            <br/>
+            <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text>$</InputGroup.Text>
+              </InputGroup.Prepend>
+
+              <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
+            </InputGroup>
 
             <Button type="submit" onClick={this.handleClick}>Create</Button>
           </Form>

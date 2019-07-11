@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../index.css';
 import rabit from '../rabit-logo.png'
+import rabit2 from '../rabit-alternate.png'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
@@ -87,7 +88,7 @@ class Header extends Component {
             exact
             activeStyle={{
             }}
-          ><img id="rabit-logo" src={rabit} alt="Rabit" /></NavLink>
+          ><img id="rabit-logo" src={rabit2} alt="Rabit" /></NavLink>
         </div>
 
 
