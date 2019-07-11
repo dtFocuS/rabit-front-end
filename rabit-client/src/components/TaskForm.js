@@ -49,7 +49,7 @@ class TaskForm extends Component {
         <Modal.Body>
           <Form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
             <InputGroup className="mb-3">
-              <FormControl id="name" placeholder="Title" onChange={this.handleChange} />
+              <FormControl id="name" placeholder="Title" onChange={this.handleChange} required/>
             </InputGroup>
 
             <InputGroup className="mb-3">
@@ -80,11 +80,11 @@ class TaskForm extends Component {
                 <InputGroup.Text>$</InputGroup.Text>
               </InputGroup.Prepend>
 
-              <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
+              <FormControl type="number" id="prefer_cost" placeholder="Amount" onChange={this.handleChange} required />
             </InputGroup>
 
             <InputGroup>
-              <FormControl id="description" placeholder="Description" onChange={this.handleChange} required as="textarea" aria-label="With textarea" />
+              <FormControl id="description" placeholder="Description" onChange={this.handleChange} as="textarea" aria-label="With textarea" required/>
             </InputGroup>
 
             <br/>
