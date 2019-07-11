@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../index.css';
+import '../../index.css';
 import { Modal, Button, Form, InputGroup, FormControl, Row, Col } from 'react-bootstrap';
 
 
@@ -25,7 +25,7 @@ class EditTaskForm extends Component {
 
     }
   }
-  
+
 
   handleClick = (event) => {
     //this.props.onHide();

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import TaskForm from './TaskForm'
-import EditTaskForm from './EditTaskForm'
-import EditAccountForm from './EditAccountForm'
-import BidForm from './BidForm'
+import TaskForm from './modals/TaskForm'
+import EditTaskForm from './modals/EditTaskForm'
+import EditAccountForm from './modals/EditAccountForm'
+import BidForm from './modals/BidForm'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 

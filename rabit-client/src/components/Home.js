@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import '../index.css';
-import TaskForm from './TaskForm';
-import EditTaskForm from './EditTaskForm'
-import BidForm from './BidForm'
+import TaskForm from './modals/TaskForm';
+import EditTaskForm from './modals/EditTaskForm'
+import BidForm from './modals/BidForm'
+
 import TaskList from './TaskList';
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
@@ -121,7 +122,7 @@ class Home extends Component {
                 </Card>
               </Accordion>
             </div>*/}
-          </div> 
+          </div>
           <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
