@@ -10,8 +10,7 @@ class TaskCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editTaskModalShow: false,
-            task: this.props.task
+            editTaskModalShow: false
         }
 
     }
@@ -27,9 +26,9 @@ class TaskCard extends Component {
                         <Accordion.Toggle as={Button} variant="plain" eventKey="0">
                             <Card.Header className="task-card-header-account-page">
                                 <div className="row">
-                                    <div className="column task-title">{this.state.task.name}</div>
+                                    <div className="column task-title">{this.props.task.name}</div>
 
-                                    <div className="column task-time">{this.state.task.completed_by}</div>
+                                    <div className="column task-time">{this.props.task.completed_by}</div>
 
                                 </div>
                             </Card.Header>
@@ -39,11 +38,11 @@ class TaskCard extends Component {
                             show={this.state.editTaskModalShow}
                             onHide={editTaskModal}
                             onEditTask={this.props.onEditTask}
-                            task={this.state.task}
+                            task={this.props.task}
                         />
 
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body className="task-card-body-account-page">{this.state.task.description}</Card.Body>
+                            <Card.Body className="task-card-body-account-page">{this.props.task.description}</Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
