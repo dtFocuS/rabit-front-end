@@ -95,12 +95,13 @@ label:focus,
 
 #create-task-button {
   float:right;
-  margin-right: 30px;
+  margin-right:85px;
+  margin-top: 9px;
   font-weight: lighter;
 }
 
 #account-link {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 #account-name {
@@ -119,19 +120,20 @@ label:focus,
   margin-top: 40px;
   background-color: #FEFFFE;
   float: left;
-  width: 500px;
+  width: 475px;
   border-radius: 3px;
   margin-bottom: 50px;
   font-weight: lighter;
+  margin-left: 20px;
 }
 
 #available-tasks {
   margin-top: 40px;
   background-color: #FEFFFE;
   float: right;
-  width: 500px;
+  width: 475px;
   border-radius: 3px;
-  margin-right: 20px;
+  margin-right: 70px;
   font-weight: lighter;
 }
 
@@ -191,14 +193,14 @@ label:focus,
 
 #create-task-button-account-page {
   float:right;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-right: 150px;
   font-weight: lighter;
 }
 
 #account-header {
   margin-top: 50px;
-  margin-left: 40px;
+  margin-left: 80px;
 }
 
 #avatar-account-page {
