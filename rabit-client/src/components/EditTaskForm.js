@@ -106,7 +106,7 @@ class EditTaskForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue={this.state.hour} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.hour} onChange={this.handleChange}>
                 <option value="12">12</option>
                 <option value="11">11</option>
                 <option value="10">10</option>
@@ -124,7 +124,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue={this.state.mins} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.mins} onChange={this.handleChange}>
                 <option value="00">00</option>
                 <option value="05">05</option>
                 <option value="10">10</option>
@@ -142,7 +142,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue={this.state.ampm} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.ampm} onChange={this.handleChange}>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
                 </Form.Control>
@@ -154,7 +154,7 @@ class EditTaskForm extends Component {
                 <InputGroup.Text>$</InputGroup.Text>
               </InputGroup.Prepend>
 
-              <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
+              <FormControl type="number" id="prefer_cost" placeholder="Amount" onChange={this.handleChange} value={this.state.prefer_cost} required />
             </InputGroup>
 
             <Button type="submit" className="modal-buttons" onClick={this.handleClick}>Submit</Button>
