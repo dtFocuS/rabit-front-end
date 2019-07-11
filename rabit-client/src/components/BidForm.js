@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, InputGroup, FormControl } from 'react-bootstrap';
 
 
 class BidForm extends Component {
@@ -47,7 +47,15 @@ class BidForm extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
-                        <input type="number" id="amount" placeholder="0.00" onChange={this.handleChange} required/>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Prepend>
+                        <InputGroup.Text>$</InputGroup.Text>
+                      </InputGroup.Prepend>
+                      <FormControl type="number" aria-label="Amount (to the nearest dollar)" />
+                      <InputGroup.Append>
+                        <InputGroup.Text>.00</InputGroup.Text>
+                      </InputGroup.Append>
+                    </InputGroup>
                         <input type="text" id="eta" placeholder="ETA" onChange={this.handleChange} required/>
 
                         <Button type="submit" onClick={this.handleClick}>bid</Button>
