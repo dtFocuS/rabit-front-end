@@ -55,7 +55,7 @@ class Header extends Component {
           id="dropdown-menu-align-right"
           >
             <Dropdown.Item href="/">Home</Dropdown.Item>
-            <Dropdown.Item href="/account">Edit Account</Dropdown.Item>
+            <Dropdown.Item href="/account">Account</Dropdown.Item>
             <Dropdown.Item href="/login">Log Out</Dropdown.Item>
         </DropdownButton>
       </div>)

@@ -42,7 +42,7 @@ class EditTaskForm extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-              Create Task
+              Edit Task
           </Modal.Title>
         </Modal.Header>
 
@@ -137,7 +137,7 @@ class EditTaskForm extends Component {
               <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
             </InputGroup>
 
-            <Button type="submit" onClick={this.handleClick}>Create</Button>
+            <Button type="submit" onClick={this.handleClick}>Submit</Button>
           </Form>
         </Modal.Body>
 

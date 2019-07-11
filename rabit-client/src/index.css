@@ -137,11 +137,13 @@ label:focus,
 
 .task-header {
 
-  background-color: #95A3A4;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
   color: #666666;
-  padding: 15px;
+  padding: 20px;
 }
 
 #your-tasks-title, #available-tasks-title {
@@ -187,6 +189,12 @@ label:focus,
 
 /* ACCOUNT CSS */
 
+#create-task-button-account-page {
+  float:right;
+  margin-right: 140px;
+  font-weight: lighter;
+}
+
 #account-header {
   margin-top: 50px;
 }
@@ -200,11 +208,13 @@ label:focus,
 }
 
 #your-tasks-account-page {
+  width:800px;
+
   margin-top: 40px;
-  background-color: lightgrey;
-  width: 600px;
-  border-radius: 7px;
+  background-color: #FEFFFE;
+  border-radius: 3px;
   margin-bottom: 50px;
+  font-weight: lighter;
 }
 
 #avatar-container-account-page {
@@ -218,7 +228,7 @@ label:focus,
   background-color: whitesmoke;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #666666;
   padding: 20px;
 }
