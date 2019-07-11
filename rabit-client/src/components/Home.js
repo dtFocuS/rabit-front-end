@@ -18,8 +18,6 @@ class Home extends Component {
 
   }
 
-  
-  
 
   createTask = (newTask) => {
     //console.log(newTask);
@@ -76,6 +74,8 @@ class Home extends Component {
               }}
             ><h1 id="account-name">account</h1></NavLink>
           </div>
+        </div>
+        <div id="body">
 
           <div className="container col-sm-12 " id="your-tasks">
 

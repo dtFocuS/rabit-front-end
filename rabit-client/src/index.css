@@ -46,11 +46,13 @@ label:focus,
 
 /* HEADER CSS */
 
+/* background: #258EA6; #2274A5*/
+
 #header-band {
-  background: #ACC0A6;
+  background: #23395B;
   border-color: black;
   border-bottom: .5px solid #e6e6e6;
-  height: 85px;
+  height: 120px;
 }
 
 #authentication-links {
@@ -80,7 +82,7 @@ label:focus,
   margin-left: 30px;
 }
 #rabit-logo {
-  height: 80px;
+  height: 120px;
 }
 
 
@@ -93,12 +95,14 @@ label:focus,
 
 #create-task-button {
   float:right;
-  margin-right: 30px;
+  margin-right:66px;
+  margin-top: 9px;
   font-weight: lighter;
 }
 
 #account-link {
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-left: 30px;
 }
 
 #account-name {
@@ -109,35 +113,40 @@ label:focus,
   height: 50px;
   margin-right: 10px;
   width: auto;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 #your-tasks {
   margin-top: 40px;
-  background-color: lightgrey;
+  background-color: #FEFFFE;
   float: left;
-  width: 500px;
+  width: 477px;
   border-radius: 3px;
   margin-bottom: 50px;
   font-weight: lighter;
+  margin-left: 50px;
 }
 
 #available-tasks {
   margin-top: 40px;
-  background-color: lightgrey;
+  background-color: #FEFFFE;
   float: right;
-  width: 500px;
+  width: 477px;
   border-radius: 3px;
-  margin-right: 20px;
+  margin-right: 65px;
   font-weight: lighter;
 }
 
 .task-header {
 
+  border: .5px solid #e6e6e6;
   background-color: whitesmoke;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
   color: #666666;
-  padding: 15px;
+  padding: 20px;
 }
 
 #your-tasks-title, #available-tasks-title {
@@ -146,7 +155,10 @@ label:focus,
 
 .task {
   border-top: .5px solid #e6e6e6;
-  padding: 10px;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 47px;
 }
 
 .task-title {
@@ -158,40 +170,60 @@ label:focus,
   padding-top: 7.5px;
 }
 .edit-task {
+  width: 45px;
+  height: 25px;
   margin-left: auto;
   margin-right: 5px;
-  color: green;
+  color: #70A83F;
   margin-top: 2px;
   font-size: 14px;
   border:none;
-  background: none;
+  border-radius: 7px;
 }
 .add-task {
+  width: 30px;
+  height: 30px;
   margin-left: auto;
   margin-right: 5px;
-  color: green;
+  color: #70A83F;
   border:none;
-  background: none;
+  border-radius: 50%;
 }
 
 /* ACCOUNT CSS */
 
+#create-task-button-account-page {
+  float:right;
+  margin-top: 15px;
+  margin-right: 150px;
+  font-weight: lighter;
+}
+
 #account-header {
   margin-top: 50px;
+  margin-left: 80px;
 }
 
 #avatar-account-page {
   height: auto;
   width: 100px;
   margin-right: 10px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+#username-account-page, #fullname-account-page {
+  font-weight: lighter;
 }
 
 #your-tasks-account-page {
+  width:800px;
+
   margin-top: 40px;
-  background-color: lightgrey;
-  width: 600px;
-  border-radius: 7px;
+  background-color: #FEFFFE;
+  border-radius: 3px;
   margin-bottom: 50px;
+  font-weight: lighter;
 }
 
 #avatar-container-account-page {
@@ -205,7 +237,7 @@ label:focus,
   background-color: whitesmoke;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #666666;
   padding: 20px;
 }
