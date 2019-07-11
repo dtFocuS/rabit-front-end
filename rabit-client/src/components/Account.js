@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import TaskForm from './TaskForm'
-import EditTaskForm from './EditTaskForm'
-import EditAccountForm from './EditAccountForm'
+import TaskForm from './modals/TaskForm'
+import EditTaskForm from './modals/EditTaskForm'
+import EditAccountForm from './modals/EditAccountForm'
 
 import { Card, Button, Accordion } from 'react-bootstrap';
 

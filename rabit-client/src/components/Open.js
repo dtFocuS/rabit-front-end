@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
-import '../index.css';
-import TaskForm from './modals/TaskForm';
+
+import TaskForm from './modals/TaskForm'
 import EditTaskForm from './modals/EditTaskForm'
+import EditAccountForm from './modals/EditAccountForm'
 import BidForm from './modals/BidForm'
 
-import TaskList from './TaskList';
-
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
+
 import { Card, Button, Accordion } from 'react-bootstrap';
 
-class Home extends Component {
+import '../index.css';
+
+class Open extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       createTaskModalShow: false,
-      placeBidModalShow: false
+      placeBidModalShow: false,
+      editTaskModalShow: false
     }
-
   }
-
-
-
 
   createBid = (newBid) => {
     console.log(newBid);
   }
 
-  // editTask = (editTask) => {
-  //   console.log(editTask);
-  // }
+  editTask = (editTask) => {
+    console.log(editTask);
+  }
 
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
     let placeBidModal = () => this.setState({ placeBidModalShow: false });
-    //let editTaskModal = () => this.setState({ editTaskModalShow: false });
+    let editTaskModal = () => this.setState({ editTaskModalShow: false });
     return (
       <div id="home">
 
@@ -64,74 +63,15 @@ class Home extends Component {
           </div>
         </div>
         <div id="body">
+          <div className="container col-sm-12 " id="open-tasks">
 
-          <div className="container col-sm-12 " id="your-tasks">
-
-            <div className="row task-header">
-                <h2 id="your-tasks-title">your tasks</h2>
-            </div>
-            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
-            {/* <div className="row">
-              <Accordion>
-                <Card className="task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="0">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
-                        <EditTaskForm
-                          show={this.state.editTaskModalShow}
-                          onHide={editTaskModal}
-                          onEditTask={this.editTask}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div> */}
-
-            {/* <div className="row">
-              <Accordion>
-                <Card className="task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
-                        <EditTaskForm
-                          show={this.state.editTaskModalShow}
-                          onHide={editTaskModal}
-                          onEditTask={this.editTask}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>*/}
-          </div>
-          <div className="container col-sm-12 " id="available-tasks">
-
-            <div className="row task-header">
-              <h2 id="available-tasks-title">available tasks</h2>
+            <div className="row open-task-header">
+              <h2 id="your-open-tasks-title">your open tasks</h2>
             </div>
 
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="open-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
@@ -157,7 +97,7 @@ class Home extends Component {
 
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="open-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
@@ -182,7 +122,7 @@ class Home extends Component {
             </div>
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="open-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
@@ -212,4 +152,4 @@ class Home extends Component {
   }
 };
 
-export default Home;
+export default Open;
