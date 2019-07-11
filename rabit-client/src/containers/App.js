@@ -64,9 +64,9 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        this.getProfile()
-    }
+    // componentDidMount() {
+    //     this.getProfile()
+    // }
 
     getProfile = () => {
         let token = this.getToken()
