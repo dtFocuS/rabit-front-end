@@ -139,7 +139,7 @@ class TaskForm extends Component {
 
             <br/>
 
-            <Button type="submit" onClick={this.handleClick}>Create</Button>
+            <Button type="submit" className="modal-buttons" onClick={this.handleClick}>Create</Button>
           </Form>
         </Modal.Body>
 

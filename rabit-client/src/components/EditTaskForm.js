@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../index.css';
 import { Modal, Button, Form, InputGroup, FormControl, Row, Col } from 'react-bootstrap';
 
 
@@ -156,7 +157,7 @@ class EditTaskForm extends Component {
               <FormControl type="number" id="prefered-cost" placeholder="Amount" onChange={this.handleChange} required />
             </InputGroup>
 
-            <Button type="submit" onClick={this.handleClick}>Submit</Button>
+            <Button type="submit" className="modal-buttons" onClick={this.handleClick}>Submit</Button>
           </Form>
         </Modal.Body>
 
