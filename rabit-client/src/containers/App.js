@@ -31,9 +31,9 @@ class App extends Component {
         }, () => {console.log(this.state.user_id)})
     }
 
-    componentWillMount() {
-        this.getProfile();
-    }
+    // componentWillMount() {
+    //     this.getProfile();
+    // }
 
 
     createTask = (newTask) => {
@@ -63,6 +63,9 @@ class App extends Component {
         })
     }
 
+    componentDidMount() {
+        this.getProfile()
+    }
 
     getProfile = () => {
         let token = this.getToken()
@@ -74,7 +77,7 @@ class App extends Component {
         .then(res => res.json())
         .then(json => {
             console.log('profile:', json)
-            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {console.log(this.state.user)})
+            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {console.log(this.state.userTasks)})
         })
     }
 
@@ -126,7 +129,23 @@ class App extends Component {
         })
     }
 
-    editTask = () => {
+    editTask = (newTask) => {
+        console.log(newTask);
+        const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
+        console.log(time);
+        const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
+        fetch("http://localhost:3000/api/v1/tasks/" + newTask.task_id, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: parseInt(newTask.zip_code), prefer_cost: dollarAmount, completed_by: time, user_id: this.state.user.id } })
+        })
+        .then(resp => resp.json())
+        .then(task => {
+            console.log(task)
+            this.getProfile() 
+        })
 
     }
 

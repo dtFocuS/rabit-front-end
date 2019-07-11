@@ -21,7 +21,8 @@ class EditTaskForm extends Component {
       prefer_cost: this.props.task.prefer_cost,
       hours: hour,
       minutes: mins,
-      ampm: ap
+      ampm: ap,
+      task_id: this.props.task.id
 
     }
   }
@@ -142,7 +143,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" value={this.state.ampm} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.ampm} id="ampm" onChange={this.handleChange}>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
                 </Form.Control>
