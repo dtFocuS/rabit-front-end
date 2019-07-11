@@ -26,7 +26,7 @@ class TaskForm extends Component {
       this.setState({
           [event.target.id]: event.target.value
       })
-      console.log(this.props.currentUserId)
+      //console.log(this.props.currentUserId)
   }
 
 
