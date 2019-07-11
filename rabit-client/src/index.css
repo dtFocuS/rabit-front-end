@@ -160,6 +160,10 @@ label:focus,
   padding-right: 10px;
   height: 47px;
 }
+.task-card {
+  width: 482px;
+  border:none;
+}
 
 .task-title {
   margin-right: 10px;
