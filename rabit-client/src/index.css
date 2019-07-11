@@ -1,5 +1,11 @@
 /* UNIVERSAL CSS */
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 a, span {
   color: #666666;
   text-decoration: none;
@@ -13,6 +19,7 @@ a:hover {
 
 .displayErrors input:invalid {
   border-color: pink;
+}
 
 textarea:hover,
 input:hover,
@@ -29,12 +36,8 @@ label:focus,
 {
     outline:0px !important;
     -webkit-appearance:none;
-<<<<<<< HEAD
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
-=======
-
->>>>>>> ce1b068509aaf8bc7537ef38b253f43b69152eeb
 }
 
 
@@ -126,7 +129,7 @@ label:focus,
 }
 
 .task-header {
-  border: .5px solid #e6e6e6;
+
   background-color: whitesmoke;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -140,8 +143,32 @@ label:focus,
 
 .task {
   border-top: .5px solid #e6e6e6;
-  padding-top: 7px;
-  padding-left: 10px;
+  padding: 10px;
+}
+
+.task-title {
+  margin-right: 10px;
+}
+.task-time {
+  margin-right: 10px;
+  font-size: 10px;
+  padding-top: 7.5px;
+}
+.edit-task {
+  margin-left: auto;
+  margin-right: 5px;
+  color: green;
+  margin-top: 2px;
+  font-size: 14px;
+  border:none;
+  background: none;
+}
+.add-task {
+  margin-left: auto;
+  margin-right: 5px;
+  color: green;
+  border:none;
+  background: none;
 }
 
 /* ACCOUNT CSS */

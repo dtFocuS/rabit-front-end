@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
 import '../index.css';
 import TaskForm from './TaskForm'
+import EditTaskForm from './EditTaskForm'
+import BidForm from './BidForm'
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Home extends Component {
   state = {
-    modalShow: false
+    createTaskModalShow: false,
+    placeBidModalShow: false,
+    editTaskModalShow: false
   }
 
   createTask = (newTask) => {
     console.log(newTask);
   }
 
+  createBid = (newBid) => {
+    console.log(newBid);
+  }
+
+  editTask = (editTask) => {
+    console.log(editTask);
+  }
+
   render(){
-    let modalClose = () => this.setState({ modalShow: false });
+    let createTaskModal = () => this.setState({ createTaskModalShow: false });
+    let placeBidModal = () => this.setState({ placeBidModalShow: false });
+    let editTaskModal = () => this.setState({ editTaskModalShow: false });
     return (
       <div id="home">
 
-        <button id="create-task-button" type="button" className="btn btn-light" onClick={() => this.setState({ modalShow: true })}>Create Task</button>
+        <button id="create-task-button" type="button" className="btn btn-light" onClick={() => this.setState({ createTaskModalShow: true })}>Create Task</button>
         <TaskForm
-          show={this.state.modalShow}
-          onHide={modalClose}
+          show={this.state.createTaskModalShow}
+          onHide={createTaskModal}
           onCreateTask={this.createTask}
         />
         <div id="account-link" className="container">
@@ -49,10 +63,24 @@ class Home extends Component {
             </div>
 
             <div className="task row">
-                <p>open task</p>
+                <div className="column task-title">Get Groceries</div>
+                <div className="column task-time">10:00am</div>
+                <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                <EditTaskForm
+                  show={this.state.editTaskModalShow}
+                  onHide={editTaskModal}
+                  // onCreateBid={this.createBid}
+                />
             </div>
             <div className="task row">
-                <p>open task</p>
+                <div className="column task-title">Get Groceries</div>
+                <div className="column task-time">10:00am</div>
+                <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                <EditTaskForm
+                  show={this.state.editTaskModalShow}
+                  onHide={editTaskModal}
+                  // onCreateBid={this.createBid}
+                />
             </div>
           </div>
 
@@ -64,10 +92,26 @@ class Home extends Component {
             </div>
 
             <div className="task row">
-                <p>open task</p>
+                <div className="column task-title">Get Groceries</div>
+                <div className="column task-time">10:00am</div>
+
+                <button type="button" className="column add-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                <BidForm
+                  show={this.state.placeBidModalShow}
+                  onHide={placeBidModal}
+                  // onCreateBid={this.createBid}
+                />
+
             </div>
             <div className="task row">
-                <p>open task</p>
+                <div className="column task-title">Get Groceries</div>
+                <div className="column task-time">10:00am</div>
+                <button type="button" className="column add-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                <BidForm
+                  show={this.state.placeBidModalShow}
+                  onHide={placeBidModal}
+                  // onCreateBid={this.createBid}
+                />
             </div>
           </div>
         </div>
