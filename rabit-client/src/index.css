@@ -335,6 +335,39 @@ label:focus,
   cursor: pointer;
 }
 
+/* OPEN CSS */
+
+#your-open-tasks-title {
+  font-weight: lighter;
+  margin: auto;
+}
+
+.open-task-card {
+  width: 700px;
+  border:none;
+}
+
+#open-tasks {
+  margin-top: 40px;
+  background-color: #FEFFFE;
+  width: 700px;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: lighter;
+}
+
+.open-task-header {
+
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
+  color: #666666;
+  padding: 20px;
+}
+
 /* MODALS CSS */
 
 .modal-buttons {

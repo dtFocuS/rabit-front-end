@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Account from '../components/Account';
+import Open from '../components/Open';
 
 // import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -131,9 +132,10 @@ class App extends Component {
             <Router>
                 <React.Fragment>
                     <Header currentUser={this.state.user}/>
-                    <Route exact path="/" render={routerProps => <Home {...routerProps} />} currentUser={this.state.user} />
+                    <Route exact path="/" render={routerProps => <Home {...routerProps} currentUser={this.state.user} />}  />
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
                     <Route exact path="/account" render={routerProps => <Account {...routerProps} currentUser={this.state.user}/>} />
+                    <Route exact path="/open" render={routerProps => <Open {...routerProps} currentUser={this.state.user}/>} />
                 </React.Fragment>
             </Router>
 
