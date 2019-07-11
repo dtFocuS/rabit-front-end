@@ -46,6 +46,7 @@ class BidForm extends Component {
           </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+
                     <Form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
                       <InputGroup className="mb-3">
                         <InputGroup.Prepend>
