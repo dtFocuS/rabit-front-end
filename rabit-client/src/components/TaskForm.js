@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 
+
 class TaskForm extends Component {
     state = {
-
-    }
-
-    handleClick = (event) => {
-        //this.props.onHide();
-
+        
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (!event.target.checkValidity() || !parseInt(this.state.zip_code)) {
+        if (!event.target.checkValidity()) {
             this.setState({ displayErrors: true });
             return;
         } else {
@@ -28,7 +24,9 @@ class TaskForm extends Component {
         this.setState({
             [event.target.id]: event.target.value
         })
+        console.log(event.target.id)
     }
+
 
     render() {
         const { displayErrors } = this.state;
@@ -53,9 +51,31 @@ class TaskForm extends Component {
                         <input type="text" id="city" placeholder="City" onChange={this.handleChange} required/>
                         <input type="text" id="state" placeholder="State" onChange={this.handleChange} required/>
                         <input type="text" id="zip_code" placeholder="Zip Code" onChange={this.handleChange} required/>
-                        <input type="text" id="prefer_cost" placeholder="Cost" onChange={this.handleChange} required/>
-                        
-                        <Button type="submit" onClick={this.handleClick}>Create</Button>
+                        <input type="text" id="prefer_cost" placeholder="Cost" onChange={this.handleChange} required/><br></br>
+                        <label>Desired Completion Time:</label>
+                        <select id="hours" onChange={this.handleChange} required>
+                            <option value="">Hours</option>
+                            <option value="00">00</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <input class="minutes" type="text" placeholder="Minutes" id="minutes" onChange={this.handleChange} required/>
+                        <select id="ampm" onChange={this.handleChange} required>
+                            <option value="">AM/PM</option>
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                        <Button type="submit">Create</Button>
                     </form>
                     
 

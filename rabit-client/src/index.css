@@ -16,8 +16,11 @@ a:hover {
   text-decoration: none;
 }
 
+input.minutes {
+  width: 70px;
+}
 
-.displayErrors input:invalid {
+.displayErrors input:invalid, .displayErrors select:invalid {
   border-color: pink;
 }
 
@@ -38,6 +41,10 @@ label:focus,
     -webkit-appearance:none;
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3bcb87b49a089dd7d0cc8203177fa4daeecd620a
 }
 
 
