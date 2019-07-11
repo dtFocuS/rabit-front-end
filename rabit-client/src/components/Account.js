@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import TaskForm from './TaskForm'
 import EditTaskForm from './EditTaskForm'
 
+import { Card, Button, Accordion } from 'react-bootstrap';
+
 import '../index.css';
 
 class Account extends Component {
@@ -64,6 +66,7 @@ class Account extends Component {
             <div className="row">
               <p id="username-account-page">@username</p>
             </div>
+            <button className="row" id="edit-account-button">edit</button>
           </div>
         </div>
         <div id="body">
@@ -73,25 +76,82 @@ class Account extends Component {
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
 
-            <div className="task row">
-                <div className="column task-title">Get Groceries</div>
-                <div className="column task-time">10:00am</div>
-                <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
-                <EditTaskForm
-                  show={this.state.editTaskModalShow}
-                  onHide={editTaskModal}
-                  onEditTask={this.editTask}
-                />
+            <div className="row">
+              <Accordion>
+                <Card className="task-card-account-page">
+                  <Accordion.Toggle as={Button} variant="plain" eventKey="0">
+                    <Card.Header className="task-card-header-account-page">
+                      <div className="row">
+                        <div className="column task-title">Get Groceries</div>
+
+                        <div className="column task-time">10:00am</div>
+                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                        <EditTaskForm
+                          show={this.state.editTaskModalShow}
+                          onHide={editTaskModal}
+                          onEditTask={this.editTask}
+                        />
+                      </div>
+                    </Card.Header>
+                  </Accordion.Toggle>
+
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
             </div>
-            <div className="task row">
-                <div className="column task-title">Get Groceries</div>
-                <div className="column task-time">10:00am</div>
-                <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
-                <EditTaskForm
-                  show={this.state.editTaskModalShow}
-                  onHide={editTaskModal}
-                  onEditTask={this.editTask}
-                />
+
+            <div className="row">
+              <Accordion>
+                <Card className="task-card-account-page">
+                  <Accordion.Toggle as={Button} variant="plain" eventKey="0">
+                    <Card.Header className="task-card-header-account-page">
+                      <div className="row">
+                        <div className="column task-title">Get Groceries</div>
+
+                        <div className="column task-time">10:00am</div>
+                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                        <EditTaskForm
+                          show={this.state.editTaskModalShow}
+                          onHide={editTaskModal}
+                          onEditTask={this.editTask}
+                        />
+                      </div>
+                    </Card.Header>
+                  </Accordion.Toggle>
+
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
+
+            <div className="row">
+              <Accordion>
+                <Card className="task-card-account-page">
+                  <Accordion.Toggle as={Button} variant="plain" eventKey="0">
+                    <Card.Header className="task-card-header-account-page">
+                      <div className="row">
+                        <div className="column task-title">Get Groceries</div>
+
+                        <div className="column task-time">10:00am</div>
+                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                        <EditTaskForm
+                          show={this.state.editTaskModalShow}
+                          onHide={editTaskModal}
+                          onEditTask={this.editTask}
+                        />
+                      </div>
+                    </Card.Header>
+                  </Accordion.Toggle>
+
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
             </div>
           </div>
         </div>

@@ -116,7 +116,7 @@ class Home extends Component {
                 <div className="column task-title">Get Groceries</div>
                 <div className="column task-time">10:00am</div>
 
-                <button type="button" className="column add-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
                 <BidForm
                   show={this.state.placeBidModalShow}
                   onHide={placeBidModal}
@@ -127,7 +127,7 @@ class Home extends Component {
             <div className="task row">
                 <div className="column task-title">Get Groceries</div>
                 <div className="column task-time">10:00am</div>
-                <button type="button" className="column add-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
                 <BidForm
                   show={this.state.placeBidModalShow}
                   onHide={placeBidModal}
