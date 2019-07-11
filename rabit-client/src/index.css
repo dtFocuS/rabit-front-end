@@ -49,7 +49,7 @@ label:focus,
 /* background: #258EA6; #2274A5*/
 
 #header-band {
-  background: #816C61;
+  background: #23395B;
   border-color: black;
   border-bottom: .5px solid #e6e6e6;
   height: 120px;
@@ -111,6 +111,8 @@ label:focus,
   height: 50px;
   margin-right: 10px;
   width: auto;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 #your-tasks {
@@ -135,7 +137,7 @@ label:focus,
 
 .task-header {
 
-  background-color: #BFD7EA;
+  background-color: #95A3A4;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #666666;
@@ -167,7 +169,7 @@ label:focus,
   height: 25px;
   margin-left: auto;
   margin-right: 5px;
-  color: #ACC0A6;
+  color: #70A83F;
   margin-top: 2px;
   font-size: 14px;
   border:none;
@@ -178,7 +180,7 @@ label:focus,
   height: 30px;
   margin-left: auto;
   margin-right: 5px;
-  color: #ACC0A6;
+  color: #70A83F;
   border:none;
   border-radius: 50%;
 }
@@ -193,6 +195,8 @@ label:focus,
   height: auto;
   width: 100px;
   margin-right: 10px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 #your-tasks-account-page {
