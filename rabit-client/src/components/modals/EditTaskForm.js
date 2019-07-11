@@ -107,7 +107,7 @@ class EditTaskForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" value={this.state.hour} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.hour} id="hours" onChange={this.handleChange}>
                 <option value="12">12</option>
                 <option value="11">11</option>
                 <option value="10">10</option>
@@ -125,7 +125,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" value={this.state.mins} onChange={this.handleChange}>
+                <Form.Control as="select" value={this.state.mins} id="minutes" onChange={this.handleChange}>
                 <option value="00">00</option>
                 <option value="05">05</option>
                 <option value="10">10</option>
