@@ -7,26 +7,32 @@ import BidForm from './BidForm'
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 
 class Home extends Component {
-  state = {
-    createTaskModalShow: false,
-    placeBidModalShow: false,
-    editTaskModalShow: false
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      createTaskModalShow: false,
+      placeBidModalShow: false,
+      editTaskModalShow: false
+    }
+
   }
+  
 
   createTask = (newTask) => {
     console.log(newTask);
     const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-    console.log(time);
+    console.log(this.props.currentUserId);
     const dollarAmount = parseFloat(newTask.prefer_cost);
     // fetch("http://localhost:3000/api/v1/tasks", {
     //   method: "POST",
     //   headers: {
     //     'Content-Type': 'application/json'
     //   },
-    //   body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: newTask.zip_code, prefer_cost: dollarAmount, completed_by: time} })
+    //   body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: newTask.zip_code, prefer_cost: dollarAmount, completed_by: time, user_id: this.props.currentUserId} })
     // })
     // .then(resp => resp.json())
-    // .then(json => {})
+    // .then(json => console.log(json))
   }
 
   createBid = (newBid) => {
@@ -49,6 +55,7 @@ class Home extends Component {
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
           onCreateTask={this.createTask}
+          currentUserId={this.props.currentUserId}
         />
         <div id="account-link" className="container">
 
