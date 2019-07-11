@@ -59,10 +59,10 @@ class Account extends Component {
 
           <div className="container">
             <div className="row">
-              <h1 id="username-account-page">name</h1>
+              <h1 id="fullname-account-page">Full Name</h1>
             </div>
             <div className="row">
-              <p id="fullname-account-page">username</p>
+              <p id="username-account-page">@username</p>
             </div>
           </div>
           <div className="container col-sm-12" id="your-tasks-account-page">
