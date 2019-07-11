@@ -141,7 +141,7 @@ class App extends Component {
                     <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} currentUser={this.state.user}/>} />
 
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
-                    <Route exact path="/account" render={routerProps => <Account {...routerProps} currentUser={this.state.user}/>} />
+                    <Route exact path="/account" render={routerProps => <Account {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} currentUser={this.state.user}/>} />
                     <Route exact path="/open" render={routerProps => <Open {...routerProps} currentUser={this.state.user}/>} />
                 </React.Fragment>
             </Router>

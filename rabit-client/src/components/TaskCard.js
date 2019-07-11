@@ -30,16 +30,17 @@ class TaskCard extends Component {
                                     <div className="column task-title">{this.state.task.name}</div>
 
                                     <div className="column task-time">{this.state.task.completed_by}</div>
-                                    <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
-                                    <EditTaskForm
-                                        show={this.state.editTaskModalShow}
-                                        onHide={editTaskModal}
-                                        onEditTask={this.props.onEditTask}
-                                        task={this.state.task}
-                                    />
+
                                 </div>
                             </Card.Header>
                         </Accordion.Toggle>
+                        <button type="button" className="column edit-task" onClick={() => this.setState({ editTaskModalShow: true })}>edit</button>
+                        <EditTaskForm
+                            show={this.state.editTaskModalShow}
+                            onHide={editTaskModal}
+                            onEditTask={this.props.onEditTask}
+                            task={this.state.task}
+                        />
 
                         <Accordion.Collapse eventKey="0">
                             <Card.Body className="task-card-body-account-page">{this.state.task.description}</Card.Body>

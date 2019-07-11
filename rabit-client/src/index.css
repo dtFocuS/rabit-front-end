@@ -188,6 +188,9 @@ label:focus,
   border-radius: 7px;
   font-size: 12px;
   margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -15px;
 }
 .bid-task {
   width: 21px;
@@ -210,13 +213,14 @@ label:focus,
 #create-task-button-account-page {
   float:right;
   margin-top: 15px;
-  margin-right: 150px;
+  margin-right: 210px;
   font-weight: lighter;
 }
 
 #account-header {
   margin-top: 50px;
-  margin-left: 80px;
+  margin-left: 100px;
+  margin-bottom: 50px;
 }
 
 #avatar-account-page {
@@ -249,7 +253,7 @@ label:focus,
 }
 
 #your-tasks-account-page {
-  width:800px;
+  width:480px;
 
   margin-top: 40px;
   background-color: #FEFFFE;
