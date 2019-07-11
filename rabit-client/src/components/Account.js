@@ -53,7 +53,7 @@ class Account extends Component {
     let editTaskModal = () => this.setState({ editTaskModalShow: false });
     return (
       <div id="home">
-        <button id="create-task-button-account-page" type="button" className="btn btn-light" onClick={() => this.setState({ createTaskModalShow: true })}>Create Task</button>
+        <button id="create-task-button" type="button" className="btn btn-light" onClick={() => this.setState({ createTaskModalShow: true })}>Create Task</button>
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
@@ -84,15 +84,10 @@ class Account extends Component {
           </div>
         </div>
         <div id="body">
-          <div className="container col-sm-12" id="your-tasks-account-page">
-
-            <div className="row task-header-account-page">
+            <div className="row task-header" id="your-tasks" >
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
-
             {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
-
-          </div>
         </div>
       </div>
     );

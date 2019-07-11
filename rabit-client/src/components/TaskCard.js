@@ -23,7 +23,7 @@ class TaskCard extends Component {
         return(
             <div className="row">
                 <Accordion>
-                    <Card className="task-card">
+                    <Card className="your-task-card">
                         <Accordion.Toggle as={Button} variant="plain" eventKey="0">
                             <Card.Header className="task-card-header-account-page">
                                 <div className="row">

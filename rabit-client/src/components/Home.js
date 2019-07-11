@@ -61,23 +61,78 @@ class Home extends Component {
         </div>
         <div id="body">
 
-          <div className="container col-sm-12 " id="your-tasks">
+        <div className="row task-header" id="your-tasks" >
+            <h2 id="your-tasks-title">your tasks</h2>
+        </div>
+        {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
 
-            <div className="row task-header">
-                <h2 id="your-tasks-title">your tasks</h2>
+          <div className="container col-sm-12 " id="available-tasks">
+
+            <div className="row task-header" >
+                <h2 id="available-tasks-title">available tasks</h2>
             </div>
-            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
+            <div className="row">
+              <Accordion>
+                <Card className="available-task-card">
+                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
+                    <Card.Header className="task-card-header-account-page">
+                      <div className="row">
+                        <div className="column task-title">Get Groceries</div>
+
+                        <div className="column task-time">10:00am</div>
+                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                        <BidForm
+                          show={this.state.placeBidModalShow}
+                          onHide={placeBidModal}
+                          onCreateBid={this.createBid}
+                        />
+                      </div>
+                    </Card.Header>
+                  </Accordion.Toggle>
+
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
+
+            <div className="row">
+              <Accordion>
+                <Card className="available-task-card">
+                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
+                    <Card.Header className="task-card-header-account-page">
+                      <div className="row">
+                        <div className="column task-title">Get Groceries</div>
+
+                        <div className="column task-time">10:00am</div>
+                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                        <BidForm
+                          show={this.state.placeBidModalShow}
+                          onHide={placeBidModal}
+                          onCreateBid={this.createBid}
+                        />
+                      </div>
+                    </Card.Header>
+                  </Accordion.Toggle>
+
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
 
           </div>
           <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
-              <h2 id="available-tasks-title">available tasks</h2>
+              <h2 id="available-tasks-title">to be completed</h2>
             </div>
 
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="available-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
@@ -103,7 +158,7 @@ class Home extends Component {
 
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="available-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
@@ -128,7 +183,7 @@ class Home extends Component {
             </div>
             <div className="row">
               <Accordion>
-                <Card className="task-card">
+                <Card className="available-task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
                     <Card.Header className="task-card-header-account-page">
                       <div className="row">
