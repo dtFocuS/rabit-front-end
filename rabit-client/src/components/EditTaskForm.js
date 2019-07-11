@@ -86,8 +86,8 @@ class EditTaskForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select">
-                <option value="12" selected>12</option>
+                <Form.Control as="select" defaultValue="12">
+                <option value="12">12</option>
                 <option value="11">11</option>
                 <option value="10">10</option>
                 <option value="09">09</option>
@@ -104,8 +104,8 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select">
-                <option value="00" selected>00</option>
+                <Form.Control as="select" defaultValue="00">
+                <option value="00">00</option>
                 <option value="05">05</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
@@ -122,8 +122,8 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select">
-                <option value="AM" selected>AM</option>
+                <Form.Control as="select" defaultValue="AM">
+                <option value="AM">AM</option>
                 <option value="PM">PM</option>
                 </Form.Control>
               </Form.Group>
