@@ -130,13 +130,8 @@ class App extends Component {
         return(
             <Router>
                 <React.Fragment>
-<<<<<<< HEAD
                     <Header currentUser={this.state.user}/>
                     <Route exact path="/" render={routerProps => <Home {...routerProps} />} currentUser={this.state.user} />
-=======
-                    <Header />
-                    <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask}/>} />
->>>>>>> 03a61cbab73fc7bab88ac1a439831f1e7067c7fa
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
                     <Route exact path="/account" render={routerProps => <Account {...routerProps} currentUser={this.state.user}/>} />
                 </React.Fragment>
