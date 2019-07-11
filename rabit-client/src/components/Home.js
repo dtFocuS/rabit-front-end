@@ -81,7 +81,7 @@ class Home extends Component {
                 <EditTaskForm
                   show={this.state.editTaskModalShow}
                   onHide={editTaskModal}
-                  // onCreateBid={this.createBid}
+                  onEditTask={this.editTask}
                 />
             </div>
             <div className="task row">
@@ -91,7 +91,7 @@ class Home extends Component {
                 <EditTaskForm
                   show={this.state.editTaskModalShow}
                   onHide={editTaskModal}
-                  // onCreateBid={this.createBid}
+                  onEditTask={this.editTask}
                 />
             </div>
           </div>
@@ -111,7 +111,7 @@ class Home extends Component {
                 <BidForm
                   show={this.state.placeBidModalShow}
                   onHide={placeBidModal}
-                  // onCreateBid={this.createBid}
+                  onCreateBid={this.createBid}
                 />
 
             </div>
@@ -122,7 +122,7 @@ class Home extends Component {
                 <BidForm
                   show={this.state.placeBidModalShow}
                   onHide={placeBidModal}
-                  // onCreateBid={this.createBid}
+                  onCreateBid={this.createBid}
                 />
             </div>
           </div>

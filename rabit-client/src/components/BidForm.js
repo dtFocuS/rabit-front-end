@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, InputGroup, FormControl } from 'react-bootstrap';
+import { Modal, Button, InputGroup, FormControl, Form } from 'react-bootstrap';
 
 
 class BidForm extends Component {
@@ -14,7 +14,7 @@ class BidForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (!event.target.checkValidity() || !parseInt(this.state.zip_code)) {
+        if (!event.target.checkValidity()) {
             this.setState({ displayErrors: true });
             return;
         } else {
@@ -46,20 +46,21 @@ class BidForm extends Component {
           </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
-                    <InputGroup className="mb-3">
-                      <InputGroup.Prepend>
-                        <InputGroup.Text>$</InputGroup.Text>
-                      </InputGroup.Prepend>
-                      <FormControl type="number" aria-label="Amount (to the nearest dollar)" />
-                      <InputGroup.Append>
-                        <InputGroup.Text>.00</InputGroup.Text>
-                      </InputGroup.Append>
-                    </InputGroup>
-                        <input type="text" id="eta" placeholder="ETA" onChange={this.handleChange} required/>
+                    <Form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
+                      <InputGroup className="mb-3">
+                        <InputGroup.Prepend>
+                          <InputGroup.Text>$</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl type="number" id="amount" placeholder="0" onChange={this.handleChange} required aria-label="Amount (to the nearest dollar)" />
+                      </InputGroup>
 
-                        <Button type="submit" onClick={this.handleClick}>bid</Button>
-                    </form>
+                      <InputGroup className="mb-3">
+                        <FormControl
+                          type="text" id="eta" placeholder="ETA" onChange={this.handleChange} required
+                        />
+                      </InputGroup>
+                        <Button type="submit" onClick={this.handleClick}>Bid</Button>
+                    </Form>
 
 
                 </Modal.Body>

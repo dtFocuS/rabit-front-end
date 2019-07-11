@@ -8,7 +8,7 @@ class TaskForm extends Component {
         hours: "12",
         minutes: "00",
         ampm: "AM"
-        
+
     }
 
     handleSubmit = (event) => {
@@ -82,7 +82,7 @@ class TaskForm extends Component {
                         </select>
                         <Button type="submit">Create</Button>
                     </form>
-                    
+
 
                 </Modal.Body>
                 <Modal.Footer>
