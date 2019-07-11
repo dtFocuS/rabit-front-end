@@ -161,7 +161,7 @@ label:focus,
   height: 47px;
 }
 .task-card {
-  width: 482px;
+  width: 480px;
   border:none;
 }
 
@@ -177,13 +177,14 @@ label:focus,
 }
 .edit-task {
   width: 45px;
-  height: 21.5px;
+  height: 22px;
   margin-left: auto;
-  margin-right: 25px;
+  margin-right: 5px;
   margin-top: 10px;
-  color: #70A83F;
+  color: white;
   font-size: 14px;
-  border: 1px solid #70A83F;
+  border: none;
+  background-color: #70A83F;
   border-radius: 7px;
   font-size: 12px;
   margin-top: 0px;
@@ -193,12 +194,13 @@ label:focus,
   height: 21px;
   margin-left: auto;
   margin-right: 5px;
-  color: #70A83F;
+  color: white;
   border:none;
   border-radius: 50%;
-  border: 1px solid #70A83F;
+  border: none;
+  background-color: #70A83F;
   border-radius: 50%;
-  font-size: 10.5px;
+  font-size: 9px;
   text-align: center;
   margin-top: 0px;
 }
@@ -314,8 +316,11 @@ label:focus,
 #logout-button, #submit-button {
   font-size: 25px;
   border-radius: 7px;
-  font-weight: lighter;
-
+  background-color: #70A83F;
+  border: none;
+  color: white;
+  height: 50px;
+  width: 100px;
 }
 
 #logged-in-username {
@@ -328,4 +333,16 @@ label:focus,
 }
 #sign-up-button {
   cursor: pointer;
+}
+
+/* MODALS CSS */
+
+.modal-buttons {
+  background-color: #70A83F;
+  border: none;
+  float: right;
+  margin-right: 20px;
+}
+.modal-buttons:hover {
+  background-color: green;
 }

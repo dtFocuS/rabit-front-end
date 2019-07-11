@@ -83,11 +83,11 @@ class App extends Component {
 
     logout = () => {
         //this.clearToken();
-        this.setState({ 
-            user: null 
+        this.setState({
+            user: null
         })
     }
-    
+
 
     getProfile = () => {
         let token = this.getToken()
@@ -132,7 +132,7 @@ class App extends Component {
 
     loginNewUser = (password) => {
         let username = this.state.user.username;
-        console.log(username); 
+        console.log(username);
         console.log(password);
         fetch('http://localhost:3000/api/v1/login', {
             method: 'POST',
@@ -156,10 +156,10 @@ class App extends Component {
         return(
             <Router>
                 <React.Fragment>
-                    <Header />
-                    <Route exact path="/" render={routerProps => <Home {...routerProps} />} />
+                    <Header currentUser={this.state.user}/>
+                    <Route exact path="/" render={routerProps => <Home {...routerProps} />} currentUser={this.state.user} />
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
-                    <Route exact path="/account" component={Account} />
+                    <Route exact path="/account" render={routerProps => <Account {...routerProps} currentUser={this.state.user}/>} />
                 </React.Fragment>
             </Router>
 

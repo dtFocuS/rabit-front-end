@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TaskForm from './TaskForm'
 import EditTaskForm from './EditTaskForm'
+import EditAccountForm from './EditAccountForm'
 
 import { Card, Button, Accordion } from 'react-bootstrap';
 
@@ -13,7 +14,7 @@ class Account extends Component {
     super(props);
     this.state = {
       createTaskModalShow: false,
-      placeBidModalShow: false,
+      editAccountModalShow: false,
       editTaskModalShow: false
     }
 
@@ -40,9 +41,13 @@ class Account extends Component {
     console.log(editTask);
   }
 
+  editAccount = (editAcount) => {
+    console.log(editAcount);
+  }
+
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
-    let placeBidModal = () => this.setState({ placeBidModalShow: false });
+    let editAccountModal = () => this.setState({ editAccountModalShow: false });
     let editTaskModal = () => this.setState({ editTaskModalShow: false });
     return (
       <div id="home">
@@ -61,12 +66,19 @@ class Account extends Component {
 
           <div className="container">
             <div className="row">
-              <h1 id="fullname-account-page">Full Name</h1>
+              <h1 id="fullname-account-page">{this.props.currentUser && this.props.currentUser.name || null}</h1>
             </div>
             <div className="row">
-              <p id="username-account-page">@username</p>
+              <p id="username-account-page">{this.props.currentUser && "@" + this.props.currentUser.username || null}</p>
             </div>
-            <button className="row" id="edit-account-button">edit</button>
+            <button className="row" id="edit-account-button" onClick={() => this.setState({ editAccountModalShow: true })}>edit</button>
+            <EditAccountForm
+              currentUser={this.props.currentUser}
+              show={this.state.editAccountModalShow}
+              onHide={editAccountModal}
+              onCreateEditAccount={this.editAccount}
+              currentUserId={this.props.currentUserId}
+            />
           </div>
         </div>
         <div id="body">

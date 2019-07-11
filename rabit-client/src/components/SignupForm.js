@@ -53,12 +53,12 @@ class SignupForm extends Component {
                         <input type="text" id="username" placeholder="Username"  onChange={this.handleChange} required/>
                         <input type="password" id="password" placeholder="Password"  onChange={this.handleChange} required/>
                         <input type="text" id="default_location" placeholder="Location" onChange={this.handleChange} required/>
-                        <Button type="submit" onClick={this.props.onHide}>Create</Button>
+                        <Button type="submit" className="modal-buttons" onClick={this.props.onHide}>Create</Button>
                     </form>
-                    
+
                 </Modal.Body>
                 <Modal.Footer>
-                    
+
                 </Modal.Footer>
             </Modal>
         );
