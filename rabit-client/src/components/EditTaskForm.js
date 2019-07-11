@@ -4,9 +4,28 @@ import { Modal, Button, Form, InputGroup, FormControl, Row, Col } from 'react-bo
 
 
 class EditTaskForm extends Component {
-  state = {
 
+  constructor(props) {
+    super(props);
+    let hour = this.props.task.completed_by.split(":")[0];
+    let minsWithAP = this.props.task.completed_by.split(":")[1];
+    let mins = minsWithAP.split(" ")[0];
+    let ap = minsWithAP.split(" ")[1];
+    this.state = {
+      name: this.props.task.name,
+      description: this.props.task.description,
+      address: this.props.task.address,
+      city: this.props.task.city,
+      state: this.props.task.state,
+      zip_code: this.props.task.zip_code,
+      prefer_cost: this.props.task.prefer_cost,
+      hours: hour,
+      minutes: mins,
+      ampm: ap
+
+    }
   }
+  
 
   handleClick = (event) => {
     //this.props.onHide();
@@ -50,34 +69,34 @@ class EditTaskForm extends Component {
         <Modal.Body>
           <Form onSubmit={this.handleSubmit} className={displayErrors ? 'displayErrors' : ''} noValidate>
             <InputGroup className="mb-3">
-              <FormControl id="name" placeholder="Title" onChange={this.handleChange} />
+              <FormControl id="name" placeholder="Title" onChange={this.handleChange} value={this.state.name}/>
             </InputGroup>
 
             <InputGroup className="mb-3">
-              <FormControl id="address" placeholder="Address" onChange={this.handleChange} required />
+              <FormControl id="address" placeholder="Address" onChange={this.handleChange} value={this.state.address} required />
             </InputGroup>
             <Row>
               <Col>
                 <InputGroup className="mb-3">
-                  <FormControl id="city" placeholder="City" onChange={this.handleChange} required />
+                  <FormControl id="city" placeholder="City" onChange={this.handleChange} value={this.state.city} required />
                 </InputGroup>
               </Col>
 
               <Col>
                 <InputGroup className="mb-3">
-                  <FormControl id="state" placeholder="State" onChange={this.handleChange} required />
+                  <FormControl id="state" placeholder="State" onChange={this.handleChange} value={this.state.state} required />
                 </InputGroup>
               </Col>
 
               <Col>
                 <InputGroup className="mb-3">
-                  <FormControl id="zip-code" placeholder="Zip Code" onChange={this.handleChange} required />
+                  <FormControl id="zip_code" placeholder="Zip Code" onChange={this.handleChange} value={this.state.zip_code} required />
                 </InputGroup>
               </Col>
             </Row>
 
             <InputGroup>
-              <FormControl id="description" placeholder="Description" onChange={this.handleChange} required as="textarea" aria-label="With textarea" />
+              <FormControl id="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} required as="textarea" aria-label="With textarea" />
             </InputGroup>
 
             <br/>
@@ -87,7 +106,7 @@ class EditTaskForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="12">
+                <Form.Control as="select" defaultValue={this.state.hour} onChange={this.handleChange}>
                 <option value="12">12</option>
                 <option value="11">11</option>
                 <option value="10">10</option>
@@ -105,7 +124,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="00">
+                <Form.Control as="select" defaultValue={this.state.mins} onChange={this.handleChange}>
                 <option value="00">00</option>
                 <option value="05">05</option>
                 <option value="10">10</option>
@@ -123,7 +142,7 @@ class EditTaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="AM">
+                <Form.Control as="select" defaultValue={this.state.ampm} onChange={this.handleChange}>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
                 </Form.Control>

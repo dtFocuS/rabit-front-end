@@ -26,7 +26,8 @@ class TaskForm extends Component {
       this.setState({
           [event.target.id]: event.target.value
       })
-      //console.log(this.props.currentUserId)
+      console.log(event.target)
+      console.log(event.target.value)
   }
 
 
@@ -93,7 +94,7 @@ class TaskForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="12">
+                <Form.Control as="select" id="hours" defaultValue="12" onChange={this.handleChange}>
                 <option value="12">12</option>
                 <option value="11">11</option>
                 <option value="10">10</option>
@@ -111,7 +112,7 @@ class TaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="00">
+                <Form.Control as="select" id="minutes" defaultValue="00" onChange={this.handleChange}>
                 <option value="00">00</option>
                 <option value="05">05</option>
                 <option value="10">10</option>
@@ -129,7 +130,7 @@ class TaskForm extends Component {
 
               <Form.Group as={Col} controlId="formGridState">
 
-                <Form.Control as="select" defaultValue="AM">
+                <Form.Control as="select" id="ampm" defaultValue="AM" onChange={this.handleChange}>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
                 </Form.Control>

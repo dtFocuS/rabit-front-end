@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import '../index.css';
-import TaskForm from './TaskForm'
+import TaskForm from './TaskForm';
 import EditTaskForm from './EditTaskForm'
 import BidForm from './BidForm'
+import TaskList from './TaskList';
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 import { Card, Button, Accordion } from 'react-bootstrap';
@@ -13,8 +14,7 @@ class Home extends Component {
     super(props);
     this.state = {
       createTaskModalShow: false,
-      placeBidModalShow: false,
-      editTaskModalShow: false
+      placeBidModalShow: false
     }
 
   }
@@ -26,14 +26,14 @@ class Home extends Component {
     console.log(newBid);
   }
 
-  editTask = (editTask) => {
-    console.log(editTask);
-  }
+  // editTask = (editTask) => {
+  //   console.log(editTask);
+  // }
 
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
     let placeBidModal = () => this.setState({ placeBidModalShow: false });
-    let editTaskModal = () => this.setState({ editTaskModalShow: false });
+    //let editTaskModal = () => this.setState({ editTaskModalShow: false });
     return (
       <div id="home">
 
@@ -69,8 +69,8 @@ class Home extends Component {
             <div className="row task-header">
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
-
-            <div className="row">
+            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
+            {/* <div className="row">
               <Accordion>
                 <Card className="task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="0">
@@ -94,9 +94,9 @@ class Home extends Component {
                   </Accordion.Collapse>
                 </Card>
               </Accordion>
-            </div>
+            </div> */}
 
-            <div className="row">
+            {/* <div className="row">
               <Accordion>
                 <Card className="task-card">
                   <Accordion.Toggle as={Button} variant="plain" eventKey="1">
@@ -120,8 +120,8 @@ class Home extends Component {
                   </Accordion.Collapse>
                 </Card>
               </Accordion>
-            </div>
-          </div>
+            </div>*/}
+          </div> 
           <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
