@@ -78,7 +78,7 @@ class App extends Component {
         .then(res => res.json())
         .then(json => {
             console.log('profile:', json)
-            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {console.log(this.state.userTasks)})
+            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {this.loadUserTasks()})
         })
     }
 
@@ -86,12 +86,15 @@ class App extends Component {
         localStorage.setItem('jwt', jwt)
     }
 
-    // clearToken(jwt) {
-    //     localStorage.setItem('jwt', '')
-    // }
-
     getToken(jwt) {
         return localStorage.getItem('jwt')
+    }
+
+    loadUserTasks = () => {
+        let temp = this.state.user.tasks.slice().reverse();
+        this.setState({
+            userTasks: temp
+        })
     }
 
 
