@@ -5,6 +5,9 @@ import { Modal, Button } from 'react-bootstrap';
 
 class TaskForm extends Component {
     state = {
+        hours: "12",
+        minutes: "00",
+        ampm: "AM"
         
     }
 
@@ -52,10 +55,8 @@ class TaskForm extends Component {
                         <input type="text" id="state" placeholder="State" onChange={this.handleChange} required/>
                         <input type="text" id="zip_code" placeholder="Zip Code" onChange={this.handleChange} required/>
                         <input type="text" id="prefer_cost" placeholder="Cost" onChange={this.handleChange} required/><br></br>
-                        <label>Desired Completion Time:</label>
-                        <select id="hours" onChange={this.handleChange} required>
-                            <option value="">Hours</option>
-                            <option value="00">00</option>
+                        <label>Desired Completion Time:  </label>
+                        <select id="hours" onChange={this.handleChange}>
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
@@ -67,12 +68,16 @@ class TaskForm extends Component {
                             <option value="09">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
-                            <option value="12">12</option>
+                            <option value="12" selected>12</option>
                         </select>
-                        <input class="minutes" type="text" placeholder="Minutes" id="minutes" onChange={this.handleChange} required/>
-                        <select id="ampm" onChange={this.handleChange} required>
-                            <option value="">AM/PM</option>
-                            <option value="AM">AM</option>
+                        <select id="minutes" onChange={this.handleChange}>
+                            <option value="00" selected>00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                        <select id="ampm" onChange={this.handleChange}>
+                            <option value="AM" selected>AM</option>
                             <option value="PM">PM</option>
                         </select>
                         <Button type="submit">Create</Button>
