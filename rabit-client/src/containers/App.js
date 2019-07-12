@@ -51,8 +51,8 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
             console.log(task)
-            this.setState(prevState => {
-                userTasks: prevState.userTasks.push(task)
+            this.setState({
+                userTasks: this.state.user.tasks
             }, () => {this.getProfile()})
         })
     }
@@ -64,9 +64,9 @@ class App extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     this.getProfile()
-    // }
+    componentDidMount() {
+        this.getProfile()
+    }
 
     getProfile = () => {
         let token = this.getToken()
@@ -78,7 +78,7 @@ class App extends Component {
         .then(res => res.json())
         .then(json => {
             console.log('profile:', json)
-            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {this.loadUserTasks()})
+            this.setState({ user: json.user}, () => {this.loadUserTasks()})
         })
     }
 
