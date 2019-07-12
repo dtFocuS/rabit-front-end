@@ -107,7 +107,7 @@ class App extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ user: { ...newUser } })
+            body: JSON.stringify({ user: { name: newUser.name, username: newUser.username, password: newUser.password, address: newUser.address, city: newUser.city, state: newUser.state, zip_code: newUser.zip_code } })
         })
         .then(resp => resp.json())
         .then(json => { this.setState({ user: json.user}, () => {this.loginNewUser(password)}) })

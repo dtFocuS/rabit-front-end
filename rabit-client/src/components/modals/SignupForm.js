@@ -21,15 +21,14 @@ class SignupForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.name !== "" && this.state.username !== "" && this.state.password !== "" && this.state.default_location !=="") {
-            console.log(this.state.valid)
-            this.setState({
-                valid: true
-            })
-            this.props.onCreate(this.state)
+        if (!event.target.checkValidity() || this.state.confirm !== this.state.password) {
+            this.setState({ displayErrors: true });
+            return;
+        } else {
+            this.setState({ displayErrors: false });
+            this.props.onHide();
+            this.props.onCreate(this.state);
         }
-
-
     }
 
     handleChange = (event) => {
