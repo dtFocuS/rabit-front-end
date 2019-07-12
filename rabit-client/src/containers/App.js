@@ -91,10 +91,12 @@ class App extends Component {
     }
 
     loadUserTasks = () => {
+      if (this.state.user) {
         let temp = this.state.user.tasks.slice().reverse();
         this.setState({
             userTasks: temp
         })
+      }
     }
 
 
@@ -148,7 +150,7 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
             console.log(task)
-            this.getProfile() 
+            this.getProfile()
         })
 
     }
