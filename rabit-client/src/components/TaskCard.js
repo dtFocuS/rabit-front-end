@@ -73,6 +73,8 @@ class TaskCard extends Component {
                         />
 
                         <Accordion.Collapse eventKey="0">
+
+
                             <Card.Body className="task-card-body-account-page">
                               <div className="row">
 
@@ -89,6 +91,7 @@ class TaskCard extends Component {
                                 </div>
 
                               </div>
+
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
