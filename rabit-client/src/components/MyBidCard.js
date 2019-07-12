@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Card, Button, Accordion } from 'react-bootstrap';
-import BidForm from './modals/BidForm';
+import UpdateBidForm from './modals/UpdateBidForm';
 
 
 class MyBidCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            placeBidModalShow: false
+            updateBidModalShow: false
         }
     }
 
     render() {
-        let placeBidModal = () => this.setState({ placeBidModalShow: false });
+        let updateBidModal = () => this.setState({ updateBidModalShow: false });
 
         return(
             <div className="row">
@@ -24,15 +24,15 @@ class MyBidCard extends Component {
                                     <div className="column task-title">{this.props.task.name}</div>
 
                                     <div className="column task-time">{this.props.task.completed_by}</div>
-                                    <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                                    <BidForm
-                                        show={this.state.placeBidModalShow}
-                                        onHide={placeBidModal}
-                                        onCreateBid={this.createBid}
-                                    />
                                 </div>
                             </Card.Header>
                         </Accordion.Toggle>
+                        <button type="button" className="column my-bid-update" onClick={() => this.setState({ updateBidModalShow: true })}>update</button>
+                        <UpdateBidForm
+                            show={this.state.updateBidModalShow}
+                            onHide={updateBidModal}
+                            onCreateBid={this.createBid}
+                        />
 
                         <Accordion.Collapse eventKey="1">
                             <Card.Body className="task-card-body-account-page">{this.props.task.description}</Card.Body>

@@ -196,6 +196,25 @@ label:focus,
   top: -40px;
   left: -15px;
 }
+
+.my-bid-update {
+  width: 55px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #70A83F;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -15px;
+}
+
 .bid-task {
   width: 21px;
   height: 21px;

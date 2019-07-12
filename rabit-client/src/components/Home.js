@@ -22,10 +22,6 @@ class Home extends Component {
 
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
-
-    //let placeBidModal = () => this.setState({ placeBidModalShow: false });
-    //let editTaskModal = () => this.setState({ editTaskModalShow: false });
-
     let placeBidModal = () => this.setState({ placeBidModalShow: false });
 
     return (
