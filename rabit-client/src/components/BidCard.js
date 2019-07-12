@@ -43,16 +43,17 @@ class BidCard extends Component {
                                     <div className="column task-time">
                                         {this.props.task.completed_by}
                                     </div>
-                                    <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                                    <BidForm
-                                        show={this.state.placeBidModalShow}
-                                        onHide={placeBidModal}
-                                        onPlaceBid={this.props.onPlaceBid}
-                                        task={this.props.task}
-                                    />
                                 </div>
                             </Card.Header>
                         </Accordion.Toggle>
+
+                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
+                        <BidForm
+                            show={this.state.placeBidModalShow}
+                            onHide={placeBidModal}
+                            onPlaceBid={this.props.onPlaceBid}
+                            task={this.props.task}
+                        />
 
                         <Accordion.Collapse eventKey="1">
                             <Card.Body className="task-card-body-account-page">

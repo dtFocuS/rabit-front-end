@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { Card, Button, Accordion } from 'react-bootstrap';
 import UpdateBidForm from './modals/UpdateBidForm';
+import RemoveBidForm from './modals/RemoveBidForm'
 
 
 class MyBidCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            updateBidModalShow: false
+            updateBidModalShow: false,
+            removeBidModalShow: false
         }
     }
 
     render() {
         let updateBidModal = () => this.setState({ updateBidModalShow: false });
+        let removeBidModal = () => this.setState({ removeBidModalShow: false });
 
         return(
             <div className="row">
@@ -32,6 +35,12 @@ class MyBidCard extends Component {
                             show={this.state.updateBidModalShow}
                             onHide={updateBidModal}
                             onCreateBid={this.createBid}
+                        />
+
+                        <button type="button" className="column remove-bid" onClick={() => this.setState({ removeBidModalShow: true })}>remove</button>
+                        <RemoveBidForm
+                            show={this.state.removeBidModalShow}
+                            onHide={removeBidModal}
                         />
 
                         <Accordion.Collapse eventKey="1">

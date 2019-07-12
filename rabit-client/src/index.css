@@ -194,7 +194,43 @@ label:focus,
   margin-top: 0px;
   position: relative;
   top: -40px;
-  left: -15px;
+  left: -75px;
+}
+
+.remove-task {
+  width: 59px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #C40A07;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -62px;
+  left: -10px;
+}
+
+.remove-bid {
+  width: 59px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #C40A07;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -62px;
+  left: -10px;
 }
 
 .my-bid-update {
@@ -212,7 +248,7 @@ label:focus,
   margin-top: 0px;
   position: relative;
   top: -40px;
-  left: -15px;
+  left: -75px;
 }
 
 .bid-task {
@@ -229,6 +265,9 @@ label:focus,
   font-size: 9px;
   text-align: center;
   margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -15px;
 }
 
 /* ACCOUNT CSS */
@@ -404,4 +443,13 @@ label:focus,
 }
 .modal-buttons:hover {
   background-color: green;
+}
+
+.modal-delete-buttons {
+  background-color: #C40A07;
+  border: none;
+}
+
+.modal-delete-buttons:hover {
+  background-color: #9B0806;
 }

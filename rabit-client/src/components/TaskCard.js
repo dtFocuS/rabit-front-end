@@ -3,6 +3,7 @@ import { Card, Button, Accordion } from 'react-bootstrap';
 import TaskForm from './modals/TaskForm'
 import EditTaskForm from './modals/EditTaskForm'
 import BidForm from './modals/BidForm'
+import RemoveBidForm from './modals/RemoveBidForm'
 
 
 class TaskCard extends Component {
@@ -10,7 +11,8 @@ class TaskCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editTaskModalShow: false
+            editTaskModalShow: false,
+            removeTaskModalShow: false
         }
 
     }
@@ -18,6 +20,7 @@ class TaskCard extends Component {
 
     render() {
         let editTaskModal = () => this.setState({ editTaskModalShow: false });
+        let removeTaskModal = () => this.setState({ removeTaskModalShow: false });
 
         return(
             <div className="row">
@@ -39,6 +42,12 @@ class TaskCard extends Component {
                             onHide={editTaskModal}
                             onEditTask={this.props.onEditTask}
                             task={this.props.task}
+                        />
+
+                        <button type="button" className="column remove-task" onClick={() => this.setState({ removeTaskModalShow: true })}>remove</button>
+                        <RemoveBidForm
+                            show={this.state.removeTaskModalShow}
+                            onHide={removeTaskModal}
                         />
 
                         <Accordion.Collapse eventKey="0">
