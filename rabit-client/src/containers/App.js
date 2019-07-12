@@ -21,8 +21,7 @@ class App extends Component {
             user_id: null,
             userTasks: [],
             otherTasks:[],
-            bidTasks: [],
-            allTasks: []
+            bidTasks: []
         }
     }
 
@@ -51,7 +50,7 @@ class App extends Component {
 
     createTask = (newTask) => {
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-        console.log(time);
+
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
         fetch("http://localhost:3000/api/v1/tasks", {
           method: "POST",
@@ -62,7 +61,7 @@ class App extends Component {
         })
         .then(resp => resp.json())
         .then(task => {
-            console.log(task)
+
             this.setState({userTasks: this.state.user.tasks}, () => {this.getUser()})
         })
     }
@@ -75,10 +74,10 @@ class App extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     this.getProfile();
-        
-    // }
+    componentDidMount() {
+        this.getProfile()
+
+    }
 
     loadOtherTasks = () => {
         fetch('http://localhost:3000/api/v1/tasks')
@@ -96,28 +95,9 @@ class App extends Component {
         }
     }
 
-    loadAllTasks = () => {
-        fetch('http://localhost:3000/api/v1/tasks')
-        .then(resp => resp.json())
-        .then(tasks => {this.setState({
-            allTasks: tasks
-        }, () => {console.log(tasks)})})
-    }
 
 
-    // getProfile = () => {
-    //     let token = this.getToken()
-    //     fetch('http://localhost:3000/api/v1/profile', {
-    //         headers: {
-    //             'Authorization': 'Bearer ' + token
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(json => {
-    //         console.log('profile:', json)
-    //         this.setState({ user: json.user}, () => {this.loadUserTasks()})
-    //     })
-    // }
+
 
     saveToken(jwt) {
         localStorage.setItem('jwt', jwt)
@@ -137,9 +117,9 @@ class App extends Component {
     }
 
     editTask = (newTask) => {
-        console.log(newTask);
+
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-        console.log(time);
+
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
         fetch("http://localhost:3000/api/v1/tasks/" + newTask.task_id, {
             method: "PATCH",
@@ -155,13 +135,12 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getUser()
-        this.loadAllTasks()
+      this.getUser()
     }
 
 
     placeBid = (newBid) => {
-        console.log(newBid);
+
         const dollarAmount = parseFloat(newBid.amount).toFixed(2);
         fetch("http://localhost:3000/api/v1/bids", {
             method: "POST",
@@ -180,7 +159,7 @@ class App extends Component {
         fetch("http://localhost:3000/api/v1/bids")
         .then(resp => resp.json())
         .then(bids => {
-            console.log("load bids")
+
             this.filterBids(bids);
         })
         
@@ -190,7 +169,6 @@ class App extends Component {
     }
 
     filterBids = (bids) => {
-        console.log(this.state.user)
         if (this.state.user) {
             //let temp = bids.slice();
             const filteredBids = bids.filter(bid => bid.user_id === this.state.user.id)
@@ -199,24 +177,17 @@ class App extends Component {
     }
 
     findMyBidTasks = (filteredBids) => {
-        console.log(filteredBids)
         if (this.state.otherTasks) {
             const taskIds = filteredBids.map(bid => bid.task_id);
-            const otherUserTasks = this.state.allTasks.filter(task => task.user_id !== this.state.user.id);
-            console.log(otherUserTasks)
+
             let temp = [];
             for (let i = 0; i < taskIds.length; i++) {
-                for (const task of otherUserTasks) {
-                    console.log(taskIds[i])
+                for (const task of this.state.otherTasks) {
                     if (task.id === taskIds[i]) {
-                        console.log(task.id)
                         temp.push(task);
-                        
                     }
                 }
             }
-            console.log(this.state.user.id)
-            console.log(temp)
             this.setState({
                 bidTasks: temp
             }, () => {this.removeFromAvailableTasks()})
@@ -224,8 +195,7 @@ class App extends Component {
     }
 
     removeFromAvailableTasks = () => {
-        //let array = this.state.otherTasks.slice();
-        const array = this.state.allTasks.filter(task => task.user_id !== this.state.user.id);
+        let array = this.state.otherTasks.slice();
         for (let i = 0; i < this.state.bidTasks.length; i ++) {
             var index = array.indexOf(this.state.bidTasks[i]);
             if (index > -1) {
@@ -234,7 +204,7 @@ class App extends Component {
         }
         this.setState({
             otherTasks: array
-        }, () => { console.log(this.state.bidTasks) })
+        })
 
     }
 
@@ -275,7 +245,7 @@ class App extends Component {
                     {/* <Header currentUser={this.state.user}/> */}
                     <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user} otherTasks={this.state.otherTasks} placeBid={this.placeBid} bidTasks={this.state.bidTasks} onRemoveTask={this.removeTask} onRemoveBid={this.removeBid}/>} />
 
-                    
+
 
                     {/* <Route exact path="/" render={routerProps => <Home {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} /> */}
 

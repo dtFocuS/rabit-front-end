@@ -161,6 +161,7 @@ label:focus,
   width: 1010px;
   border:none;
   margin-left: 40px;
+  margin-bottom: -20px;
 }
 .available-task-card {
   width: 477px;
@@ -172,6 +173,8 @@ label:focus,
 .task-title {
   margin-right: 10px;
   color: black;
+  font-size: 25px;
+  margin-top: -10px;
 }
 .task-time {
   margin-right: 10px;
@@ -355,7 +358,7 @@ label:focus,
   font-size: 14px;
   font-weight: lighter;
   margin-left: -2px;
-  margin-top: -15px;
+  margin-top: -50px;
   margin-bottom: 5px;
 }
 

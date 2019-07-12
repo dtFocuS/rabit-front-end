@@ -25,7 +25,7 @@ class BidCard extends Component {
         .then(owner => {
             this.setState({
                 owner: owner
-            }, () => {console.log(this.state.owner)})
+            })
         })
     }
 
