@@ -35,7 +35,7 @@ class EditTaskForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (!event.target.checkValidity() || !parseInt(this.state.zip_code)) {
+    if (!event.target.checkValidity()) {
       this.setState({ displayErrors: true });
       return;
     } else {
@@ -91,7 +91,7 @@ class EditTaskForm extends Component {
 
               <Col>
                 <InputGroup className="mb-3">
-                  <FormControl id="zip_code" placeholder="Zip Code" onChange={this.handleChange} value={this.state.zip_code} required />
+                  <FormControl type="number" id="zip_code" placeholder="Zip Code" onChange={this.handleChange} value={this.state.zip_code} required />
                 </InputGroup>
               </Col>
             </Row>

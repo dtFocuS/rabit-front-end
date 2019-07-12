@@ -51,8 +51,8 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
             console.log(task)
-            this.setState(prevState => {
-                userTasks: prevState.userTasks.push(task)
+            this.setState({
+                userTasks: this.state.user.tasks
             }, () => {this.getProfile()})
         })
     }
