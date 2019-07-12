@@ -21,7 +21,8 @@ class App extends Component {
             user_id: null,
             userTasks: [],
             otherTasks:[],
-            bidTasks: []
+            bidTasks: [],
+            allTasks: []
         }
     }
 
@@ -74,10 +75,10 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        this.getProfile()
+    // componentDidMount() {
+    //     this.getProfile();
         
-    }
+    // }
 
     loadOtherTasks = () => {
         fetch('http://localhost:3000/api/v1/tasks')
@@ -95,6 +96,13 @@ class App extends Component {
         }
     }
 
+    loadAllTasks = () => {
+        fetch('http://localhost:3000/api/v1/tasks')
+        .then(resp => resp.json())
+        .then(tasks => {this.setState({
+            allTasks: tasks
+        }, () => {console.log(tasks)})})
+    }
 
 
     getProfile = () => {
@@ -147,7 +155,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-      this.getUser()
+        this.getUser()
+        this.loadAllTasks()
     }
 
 
@@ -189,15 +198,21 @@ class App extends Component {
         console.log(filteredBids)
         if (this.state.otherTasks) {
             const taskIds = filteredBids.map(bid => bid.task_id);
-            console.log(taskIds)
+            const otherUserTasks = this.state.allTasks.filter(task => task.user_id !== this.state.user.id);
+            console.log(otherUserTasks)
             let temp = [];
             for (let i = 0; i < taskIds.length; i++) {
-                for (const task of this.state.otherTasks) {
+                for (const task of otherUserTasks) {
+                    console.log(taskIds[i])
                     if (task.id === taskIds[i]) {
+                        console.log(task.id)
                         temp.push(task);
+                        
                     }
                 }
             }
+            console.log(this.state.user.id)
+            console.log(temp)
             this.setState({
                 bidTasks: temp
             }, () => {this.removeFromAvailableTasks()})
@@ -205,7 +220,8 @@ class App extends Component {
     }
 
     removeFromAvailableTasks = () => {
-        let array = this.state.otherTasks.slice();
+        //let array = this.state.otherTasks.slice();
+        const array = this.state.allTasks.filter(task => task.user_id !== this.state.user.id);
         for (let i = 0; i < this.state.bidTasks.length; i ++) {
             var index = array.indexOf(this.state.bidTasks[i]);
             if (index > -1) {
@@ -214,7 +230,7 @@ class App extends Component {
         }
         this.setState({
             otherTasks: array
-        }, () => { console.log(array) })
+        }, () => { console.log(this.state.bidTasks) })
 
     }
 
