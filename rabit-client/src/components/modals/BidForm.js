@@ -18,9 +18,8 @@ class BidForm extends Component {
       this.setState({ displayErrors: true });
       return;
     } else {
-      this.setState({ displayErrors: false });
+      this.setState({ displayErrors: false, task_id: this.props.task.id }, () => { this.props.onPlaceBid(this.state);});
       this.props.onHide();
-      this.props.onCreateBid(this.state);
     }
   }
 
