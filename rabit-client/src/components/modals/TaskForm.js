@@ -18,7 +18,7 @@ class TaskForm extends Component {
     } else {
       this.setState({ displayErrors: false });
       this.props.onHide();
-      this.props.onCreateTask(this.state);
+      this.props.createTask(this.state);
     }
   }
 
@@ -26,8 +26,6 @@ class TaskForm extends Component {
       this.setState({
           [event.target.id]: event.target.value
       })
-      console.log(event.target)
-      console.log(event.target.value)
   }
 
 

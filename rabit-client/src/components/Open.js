@@ -42,7 +42,7 @@ class Open extends Component {
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
           onCreateTask={this.props.onCreateTask}
-          currentUserId={this.props.currentUserId}
+          userId={this.props.userId}
         />
         <div id="account-link" className="container">
 
@@ -59,7 +59,7 @@ class Open extends Component {
               exact
               activeStyle={{
               }}
-            ><h1 id="account-name">{this.props.currentUser && this.props.currentUser.name || null}</h1></NavLink>
+            ><h1 id="account-name">{this.props.user && this.props.user.name || null}</h1></NavLink>
           </div>
         </div>
         <div id="body">

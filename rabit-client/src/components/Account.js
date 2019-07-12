@@ -22,31 +22,6 @@ class Account extends Component {
 
   }
 
-
-  createTask = (newTask) => {
-    console.log(newTask);
-    const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-    console.log(this.props.currentUserId);
-    const dollarAmount = parseFloat(newTask.prefer_cost);
-    // fetch("http://localhost:3000/api/v1/tasks", {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({ task: { name: newTask.name, description: newTask.description, address: newTask.address, city: newTask.city, state: newTask.state, zip_code: newTask.zip_code, prefer_cost: dollarAmount, completed_by: time, user_id: this.props.currentUserId} })
-    // })
-    // .then(resp => resp.json())
-    // .then(json => console.log(json))
-  }
-
-  editTask = (editTask) => {
-    console.log(editTask);
-  }
-
-  editAccount = (editAcount) => {
-    console.log(editAcount);
-  }
-
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
     let editAccountModal = () => this.setState({ editAccountModalShow: false });
@@ -57,8 +32,7 @@ class Account extends Component {
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
-          onCreateTask={this.createTask}
-          currentUserId={this.props.currentUserId}
+          createTask={this.props.createTask}
         />
         <div id="account-header" className="container">
 
@@ -68,18 +42,17 @@ class Account extends Component {
 
           <div className="container">
             <div className="row">
-              <h1 id="fullname-account-page">{this.props.currentUser && this.props.currentUser.name || null}</h1>
+              <h1 id="fullname-account-page">{this.props.user && this.props.user.name || null}</h1>
             </div>
             <div className="row">
-              <p id="username-account-page">{this.props.currentUser && "@" + this.props.currentUser.username || null}</p>
+              <p id="username-account-page">{this.props.user && "@" + this.props.user.username || null}</p>
             </div>
             <button className="row" id="edit-account-button" onClick={() => this.setState({ editAccountModalShow: true })}>edit</button>
             <EditAccountForm
-              currentUser={this.props.currentUser}
+              user={this.props.user}
               show={this.state.editAccountModalShow}
               onHide={editAccountModal}
               onCreateEditAccount={this.editAccount}
-              currentUserId={this.props.currentUserId}
             />
           </div>
         </div>
