@@ -63,22 +63,15 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
 
-            this.setState({userTasks: this.state.user.tasks}, () => {this.getUser()})
+            this.setState({userTasks: this.state.user.tasks}, () => {
+              this.getUser()
+            })
         })
     }
 
 
-    logout = () => {
-        //this.clearToken();
-        this.setState({
-            user: null
-        })
-    }
 
-    // componentDidMount() {
-    //     this.getProfile()
 
-    // }
 
     loadOtherTasks = () => {
         fetch('http://localhost:3000/api/v1/tasks')
@@ -175,7 +168,7 @@ class App extends Component {
 
             this.filterBids(bids);
         })
-        
+
         // this.setState({
         //     bidTasks: this.state.user.bids
         // }, () => { this.removeFromAvailableTasks()})
@@ -261,10 +254,6 @@ class App extends Component {
                     <Header user={this.state.user} />
                     {/* <Header currentUser={this.state.user}/> */}
                     <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user} otherTasks={this.state.otherTasks} placeBid={this.placeBid} bidTasks={this.state.bidTasks} onRemoveTask={this.removeTask} onRemoveBid={this.removeBid}/>} />
-
-
-
-                    {/* <Route exact path="/" render={routerProps => <Home {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} /> */}
 
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} getUser={this.getUser} onHandleCreate={this.createUser} user={this.state.user} handleLogout={this.logout}/>} />
 
