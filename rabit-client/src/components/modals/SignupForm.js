@@ -114,7 +114,7 @@ class SignupForm extends Component {
                     </Row>
 
 
-                        <Button type="submit" className="modal-buttons" onClick={this.handleClick}>Create</Button>
+                        <Button type="submit" className="modal-buttons" onClick={this.handleClick}>Create Account</Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
