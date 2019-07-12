@@ -148,7 +148,6 @@ class App extends Component {
 
     componentDidMount() {
       this.getUser()
-      .then(console.log(this.state.user))
     }
 
 
