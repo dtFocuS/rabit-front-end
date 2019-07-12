@@ -52,10 +52,13 @@ class Home extends Component {
         </div>
         <div id="body">
 
-        <div className="row task-header" id="your-tasks" >
-            <h2 id="your-tasks-title">your tasks</h2>
+        <div id="body" className="container">
+            <div className="row task-header" id="your-tasks" >
+                <h2 id="your-tasks-title">your tasks</h2>
+            </div>
+            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
         </div>
-        {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
+
 
           <div className="container col-sm-12 " id="available-tasks">
 

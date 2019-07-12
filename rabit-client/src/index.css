@@ -89,13 +89,14 @@ label:focus,
 /* HOME CSS */
 
 #home {
+
   max-width: 1100px;
   margin: auto;
 }
 
 #create-task-button {
   float:right;
-  margin-right:66px;
+  margin-right:50px;
   margin-top: 9px;
   font-weight: lighter;
 }
@@ -121,16 +122,15 @@ label:focus,
 #your-tasks {
   width: 1017px;
   margin: auto;
-  margin-right: 65px;
 }
 
 #available-tasks {
   margin-top: 40px;
+  float:right;
+  margin-right: 51px;
   background-color: #FEFFFE;
-  float: right;
   width: 477px;
   border-radius: 3px;
-  margin-right: 65px;
   font-weight: lighter;
 }
 
@@ -158,9 +158,9 @@ label:focus,
 }
 
 .your-task-card {
-  width: 1017px;
+  width: 1010px;
   border:none;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 .available-task-card {
   width: 477px;

@@ -41,6 +41,9 @@ class Login extends Component {
 		.then(() => {
 			this.props.history.push('/')
 		})
+		.then(() => {
+			window.location.reload();
+		})
 	}
 
 	logout = () => {

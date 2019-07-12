@@ -56,7 +56,7 @@ class Account extends Component {
             />
           </div>
         </div>
-        <div id="body">
+        <div id="body" className="container">
             <div className="row task-header" id="your-tasks" >
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
