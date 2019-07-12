@@ -35,7 +35,7 @@ class Home extends Component {
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
-          createTask={this.props.createTask}
+          createTask={this.props.onCreateTask}
         />
         <div id="account-link" className="container">
 
@@ -74,31 +74,6 @@ class Home extends Component {
               <h2 id="available-tasks-title">to be completed</h2>
             </div>
             {this.props.bidTasks ? <MyBidList bidTasks={this.props.bidTasks}/> : null}
-            {/* <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>*/}
           </div>
         </div>
       </div>
