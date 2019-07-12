@@ -62,7 +62,7 @@ class EditAccountForm extends Component {
                   <InputGroup.Text id="basic-addon1"> </InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                  type="text" id="name" value={this.props.currentUser && this.props.currentUser.name || null} onChange={this.handleChange} required
+                  type="text" id="name" value={this.props.user && this.props.user.name || null} onChange={this.handleChange} required
                 />
               </InputGroup>
             </Col>
@@ -72,30 +72,30 @@ class EditAccountForm extends Component {
                   <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                  type="text" id="username" value={this.props.currentUser && this.props.currentUser.username || null} required onChange={this.handleChange}
+                  type="text" id="username" value={this.props.user && this.props.user.username || null} required onChange={this.handleChange}
                 />
               </InputGroup>
             </Col>
           </Row>
           <InputGroup className="mb-3">
-            <FormControl id="address" value={this.props.currentUser && this.props.currentUser.address || null} onChange={this.handleChange} required />
+            <FormControl id="address" value={this.props.user && this.props.user.address || null} onChange={this.handleChange} required />
           </InputGroup>
           <Row>
             <Col>
               <InputGroup className="mb-3">
-                <FormControl id="city" value={this.props.currentUser && this.props.currentUser.city || null} onChange={this.handleChange} required />
+                <FormControl id="city" value={this.props.user && this.props.user.city || null} onChange={this.handleChange} required />
               </InputGroup>
             </Col>
 
             <Col>
               <InputGroup className="mb-3">
-                <FormControl id="state" value={this.props.currentUser && this.props.currentUser.state || null} onChange={this.handleChange} required />
+                <FormControl id="state" value={this.props.user && this.props.user.state || null} onChange={this.handleChange} required />
               </InputGroup>
             </Col>
 
             <Col>
               <InputGroup className="mb-3">
-                <FormControl id="zip_code" value={this.props.currentUser && this.props.currentUser.zip_code || null} onChange={this.handleChange} required />
+                <FormControl id="zip_code" value={this.props.user && this.props.user.zip_code || null} onChange={this.handleChange} required />
               </InputGroup>
             </Col>
           </Row>

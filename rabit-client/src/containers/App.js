@@ -21,20 +21,29 @@ class App extends Component {
             user_id: null,
             userTasks: []
         }
-        //this.getProfile = this.getProfile.bind(this)
     }
 
-    getCurrentUser = (userInfo) => {
-        console.log(userInfo.user.id)
-        this.setState({
-            user_id: userInfo.user.id,
-            user: userInfo.user
-        }, () => {console.log(this.state.user_id)})
+    getToken(jwt) {
+        return localStorage.getItem('jwt')
     }
 
-    // componentWillMount() {
-    //     this.getProfile();
-    // }
+    getUser = () => {
+      let token = this.getToken()
+      fetch('http://localhost:3000/api/v1/profile', {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      })
+      .then(res => res.json())
+      .then(json => {
+        if (json.user) {
+          this.setState( { user: json.user, user_id: json.user.id }, () => {
+            this.loadTasks()
+          })
+        }
+      })
+    }
+
 
 
     createTask = (newTask) => {
@@ -51,88 +60,17 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
             console.log(task)
-            this.setState({
-                userTasks: this.state.user.tasks
-            }, () => {this.getProfile()})
+            this.setState({userTasks: this.state.user.tasks}, () => {this.getUser()})
         })
     }
 
-    logout = () => {
-        //this.clearToken();
-        this.setState({
-            user: null
-        })
-    }
-
-    componentDidMount() {
-        this.getProfile()
-    }
-
-    getProfile = () => {
-        let token = this.getToken()
-        fetch('http://localhost:3000/api/v1/profile', {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        .then(res => res.json())
-        .then(json => {
-            console.log('profile:', json)
-            this.setState({ user: json.user}, () => {this.loadUserTasks()})
-        })
-    }
-
-    saveToken(jwt) {
-        localStorage.setItem('jwt', jwt)
-    }
-
-    getToken(jwt) {
-        return localStorage.getItem('jwt')
-    }
-
-    loadUserTasks = () => {
+    loadTasks = () => {
       if (this.state.user) {
         let temp = this.state.user.tasks.slice().reverse();
         this.setState({
             userTasks: temp
         })
       }
-    }
-
-
-    handleCreate = (newUser) => {
-        let password = newUser.password;
-        fetch('http://localhost:3000/api/v1/users', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ user: { name: newUser.name, username: newUser.username, password: newUser.password, address: newUser.address, city: newUser.city, state: newUser.state, zip_code: newUser.zip_code } })
-        })
-        .then(resp => resp.json())
-        .then(json => { this.setState({ user: json.user}, () => {this.loginNewUser(password)}) })
-
-    }
-
-    loginNewUser = (password) => {
-        let username = this.state.user.username;
-        console.log(username);
-        console.log(password);
-        fetch('http://localhost:3000/api/v1/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ user: { username, password } })
-        })
-        .then(res => res.json())
-        .then(json => {
-            console.log('login:', json)
-            if (json && json.jwt) {
-                this.saveToken(json.jwt)
-                this.getProfile()
-            }
-        })
     }
 
     editTask = (newTask) => {
@@ -149,24 +87,32 @@ class App extends Component {
         })
         .then(resp => resp.json())
         .then(task => {
-            console.log(task)
-            this.getProfile()
+            this.getUser()
         })
-
     }
 
+    componentDidMount() {
+      this.getUser()
+    }
+
+
     render() {
+
 
         return(
             <Router>
                 <React.Fragment>
 
-                    <Header currentUser={this.state.user}/>
-                    <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} currentUser={this.state.user}/>} />
+                    <Header user={this.state.user}/>
 
-                    <Route exact path="/login" render={routerProps => <Login {...routerProps} onGetCurrentUser={this.getCurrentUser} onGetProfile={this.getProfile} onHandleCreate={this.handleCreate} currentUser={this.state.user} handleLogout={this.logout}/>} />
-                    <Route exact path="/account" render={routerProps => <Account {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} currentUser={this.state.user}/>} />
-                    <Route exact path="/open" render={routerProps => <Open {...routerProps} currentUser={this.state.user}/>} />
+                    <Route exact path="/" render={routerProps => <Home {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} />
+
+                    <Route exact path="/login" render={routerProps => <Login {...routerProps} getUser={this.getUser} onHandleCreate={this.createUser} user={this.state.user} handleLogout={this.logout}/>} />
+
+                    <Route exact path="/account" render={routerProps => <Account {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} />
+
+                    <Route exact path="/open" render={routerProps => <Open {...routerProps} user={this.state.user}/>} />
+
                 </React.Fragment>
             </Router>
 

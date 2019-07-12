@@ -19,18 +19,10 @@ class Home extends Component {
     }
   }
 
-  createBid = (newBid) => {
-    console.log(newBid);
-  }
-
-  // editTask = (editTask) => {
-  //   console.log(editTask);
-  // }
-
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
     let placeBidModal = () => this.setState({ placeBidModalShow: false });
-    //let editTaskModal = () => this.setState({ editTaskModalShow: false });
+
     return (
       <div id="home">
 
@@ -38,8 +30,7 @@ class Home extends Component {
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
-          onCreateTask={this.props.onCreateTask}
-          currentUserId={this.props.currentUserId}
+          createTask={this.props.createTask}
         />
         <div id="account-link" className="container">
 
@@ -56,7 +47,7 @@ class Home extends Component {
               exact
               activeStyle={{
               }}
-            ><h1 id="account-name">{this.props.currentUser && this.props.currentUser.name || null}</h1></NavLink>
+            ><h1 id="account-name">{this.props.user && this.props.user.name || null}</h1></NavLink>
           </div>
         </div>
         <div id="body">
