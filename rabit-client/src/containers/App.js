@@ -200,8 +200,22 @@ class App extends Component {
             }
             this.setState({
                 bidTasks: temp
-            }, () => {console.log(this.state.bidTasks)})
+            }, () => {this.removeFromAvailableTasks()})
         }
+    }
+
+    removeFromAvailableTasks = () => {
+        let array = this.state.otherTasks.slice();
+        for (let i = 0; i < this.state.bidTasks.length; i ++) {
+            var index = array.indexOf(this.state.bidTasks[i]);
+            if (index > -1) {
+                array.splice(index, 1);
+            }
+        }
+        this.setState({
+            otherTasks: array
+        }, () => { console.log(array) })
+
     }
 
 
@@ -223,7 +237,7 @@ class App extends Component {
 
                     <Route exact path="/login" render={routerProps => <Login {...routerProps} getUser={this.getUser} onHandleCreate={this.createUser} user={this.state.user} handleLogout={this.logout}/>} />
 
-                    <Route exact path="/account" render={routerProps => <Account {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} />
+                    <Route exact path="/account" render={routerProps => <Account {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} />
 
                     <Route exact path="/open" render={routerProps => <Open {...routerProps} user={this.state.user}/>} />
 
