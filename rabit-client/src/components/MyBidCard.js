@@ -41,6 +41,8 @@ class MyBidCard extends Component {
                         <RemoveBidForm
                             show={this.state.removeBidModalShow}
                             onHide={removeBidModal}
+                            onRemoveBid={this.props.onRemoveBid}
+                            task={this.props.task}
                         />
 
                         <Accordion.Collapse eventKey="1">

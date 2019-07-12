@@ -4,7 +4,11 @@ import TaskForm from './modals/TaskForm'
 import EditTaskForm from './modals/EditTaskForm'
 import BidForm from './modals/BidForm'
 import RemoveBidForm from './modals/RemoveBidForm'
+
+import RemoveTaskForm from './modals/RemoveTaskForm'
+
 import TaskBids from './TaskBids'
+
 
 
 class TaskCard extends Component {
@@ -47,9 +51,11 @@ class TaskCard extends Component {
                         />
 
                         <button type="button" className="column remove-task" onClick={() => this.setState({ removeTaskModalShow: true })}>remove</button>
-                        <RemoveBidForm
+                        <RemoveTaskForm
                             show={this.state.removeTaskModalShow}
                             onHide={removeTaskModal}
+                            onRemoveTask={this.props.onRemoveTask}
+                            task={this.props.task}
                         />
 
                         <Accordion.Collapse eventKey="0">

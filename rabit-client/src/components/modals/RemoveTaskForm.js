@@ -8,6 +8,9 @@ class RemoveTaskForm extends Component {
   }
 
   handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.onHide();
+    this.props.onRemoveTask(this.props.task);
 
   }
 

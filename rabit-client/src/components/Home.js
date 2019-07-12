@@ -57,7 +57,9 @@ class Home extends Component {
             <div className="row task-header" id="your-tasks" >
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
-            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks} /> : null}
+
+            {this.props.userTasks ? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks} onRemoveTask={this.props.onRemoveTask}/> : null}
+
         </div>
 
 
@@ -72,7 +74,7 @@ class Home extends Component {
             <div className="row task-header">
               <h2 id="available-tasks-title">to be completed</h2>
             </div>
-            {this.props.bidTasks ? <MyBidList bidTasks={this.props.bidTasks}/> : null}
+            {this.props.bidTasks ? <MyBidList bidTasks={this.props.bidTasks} onRemoveBid={this.props.onRemoveBid}/> : null}
           </div>
         </div>
       </div>
