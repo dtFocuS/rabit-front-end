@@ -32,7 +32,7 @@ class Account extends Component {
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
-          createTask={this.props.createTask}
+          createTask={this.props.onCreateTask}
         />
         <div id="account-header" className="container">
 

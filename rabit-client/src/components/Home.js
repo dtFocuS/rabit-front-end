@@ -5,6 +5,8 @@ import EditTaskForm from './modals/EditTaskForm'
 import BidForm from './modals/BidForm'
 
 import TaskList from './TaskList';
+import BidCardList from './BidCardList';
+import MyBidList from './MyBidList';
 
 import { BrowserRouter as Route, NavLink } from 'react-router-dom';
 import { Card, Button, Accordion } from 'react-bootstrap';
@@ -14,13 +16,16 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      createTaskModalShow: false,
-      placeBidModalShow: false
+      createTaskModalShow: false
     }
   }
 
   render(){
     let createTaskModal = () => this.setState({ createTaskModalShow: false });
+
+    //let placeBidModal = () => this.setState({ placeBidModalShow: false });
+    //let editTaskModal = () => this.setState({ editTaskModalShow: false });
+
     let placeBidModal = () => this.setState({ placeBidModalShow: false });
 
     return (
@@ -30,7 +35,7 @@ class Home extends Component {
         <TaskForm
           show={this.state.createTaskModalShow}
           onHide={createTaskModal}
-          createTask={this.props.createTask}
+          createTask={this.props.onCreateTask}
         />
         <div id="account-link" className="container">
 
@@ -61,145 +66,17 @@ class Home extends Component {
 
 
           <div className="container col-sm-12 " id="available-tasks">
-
             <div className="row task-header" >
                 <h2 id="available-tasks-title">available tasks</h2>
             </div>
-            <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
-
-            <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
-
+            {this.props.otherTasks ? <BidCardList onPlaceBid={this.props.placeBid} otherTasks={this.props.otherTasks} /> : null}
           </div>
           <div className="container col-sm-12 " id="available-tasks">
 
             <div className="row task-header">
               <h2 id="available-tasks-title">to be completed</h2>
             </div>
-
-            <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
-
-            <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
-            <div className="row">
-              <Accordion>
-                <Card className="available-task-card">
-                  <Accordion.Toggle as={Button} variant="plain" eventKey="1">
-                    <Card.Header className="task-card-header-account-page">
-                      <div className="row">
-                        <div className="column task-title">Get Groceries</div>
-
-                        <div className="column task-time">10:00am</div>
-                        <button type="button" className="column bid-task" onClick={() => this.setState({ placeBidModalShow: true })}>+</button>
-                        <BidForm
-                          show={this.state.placeBidModalShow}
-                          onHide={placeBidModal}
-                          onCreateBid={this.createBid}
-                        />
-                      </div>
-                    </Card.Header>
-                  </Accordion.Toggle>
-
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body className="task-card-body-account-page">Hello! I'm the body</Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
+            {this.props.bidTasks ? <MyBidList bidTasks={this.props.bidTasks}/> : null}
           </div>
         </div>
       </div>
