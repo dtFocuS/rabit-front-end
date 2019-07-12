@@ -10,7 +10,10 @@ class SignupForm extends Component {
             name: "",
             username: "",
             password: "",
-            default_location: "",
+            address: "",
+            city: "",
+            state: "",
+            zip_code: "",
             valid: false
         }
     }
