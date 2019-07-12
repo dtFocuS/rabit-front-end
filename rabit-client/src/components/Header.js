@@ -17,7 +17,6 @@ class Header extends Component {
 
 
   fetchUser = () => {
-    console.log(this)
     fetch('http://localhost:3000/api/v1/profile', {
       method: 'GET',
       headers: {

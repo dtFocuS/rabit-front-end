@@ -57,7 +57,7 @@ class Home extends Component {
             <div className="row task-header" id="your-tasks" >
                 <h2 id="your-tasks-title">your tasks</h2>
             </div>
-            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks}/> : null}
+            {this.props.userTasks? <TaskList onEditTask={this.props.onEditTask} userTasks={this.props.userTasks} /> : null}
         </div>
 
 

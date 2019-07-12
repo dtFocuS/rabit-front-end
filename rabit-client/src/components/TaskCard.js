@@ -4,6 +4,7 @@ import TaskForm from './modals/TaskForm'
 import EditTaskForm from './modals/EditTaskForm'
 import BidForm from './modals/BidForm'
 import RemoveBidForm from './modals/RemoveBidForm'
+import TaskBids from './TaskBids'
 
 
 class TaskCard extends Component {
@@ -12,15 +13,16 @@ class TaskCard extends Component {
         super(props);
         this.state = {
             editTaskModalShow: false,
-            removeTaskModalShow: false
+            removeTaskModalShow: false,
+            taskBids: []
         }
 
     }
 
-
     render() {
         let editTaskModal = () => this.setState({ editTaskModalShow: false });
         let removeTaskModal = () => this.setState({ removeTaskModalShow: false });
+        console.log(this.props.task)
 
         return(
             <div className="row">
@@ -51,7 +53,11 @@ class TaskCard extends Component {
                         />
 
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body className="task-card-body-account-page">{this.props.task.description}</Card.Body>
+                            <Card.Body className="task-card-body-account-page">{this.props.task.description}
+                            <TaskBids
+                              bids={this.props.userTasks.bids}/>
+                              <div>stuff</div>
+                            </Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>

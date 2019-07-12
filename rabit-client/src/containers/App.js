@@ -50,7 +50,7 @@ class App extends Component {
 
     createTask = (newTask) => {
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-        console.log(time);
+
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
         fetch("http://localhost:3000/api/v1/tasks", {
           method: "POST",
@@ -61,7 +61,7 @@ class App extends Component {
         })
         .then(resp => resp.json())
         .then(task => {
-            console.log(task)
+
             this.setState({userTasks: this.state.user.tasks}, () => {this.getUser()})
         })
     }
@@ -76,7 +76,7 @@ class App extends Component {
 
     componentDidMount() {
         this.getProfile()
-        
+
     }
 
     loadOtherTasks = () => {
@@ -106,7 +106,7 @@ class App extends Component {
         })
         .then(res => res.json())
         .then(json => {
-            console.log('profile:', json)
+
             this.setState({ user: json.user}, () => {this.loadUserTasks()})
         })
     }
@@ -129,9 +129,9 @@ class App extends Component {
     }
 
     editTask = (newTask) => {
-        console.log(newTask);
+
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
-        console.log(time);
+
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
         fetch("http://localhost:3000/api/v1/tasks/" + newTask.task_id, {
             method: "PATCH",
@@ -148,11 +148,12 @@ class App extends Component {
 
     componentDidMount() {
       this.getUser()
+      .then(console.log(this.state.user))
     }
 
 
     placeBid = (newBid) => {
-        console.log(newBid);
+
         const dollarAmount = parseFloat(newBid.amount).toFixed(2);
         fetch("http://localhost:3000/api/v1/bids", {
             method: "POST",
@@ -171,13 +172,12 @@ class App extends Component {
         fetch("http://localhost:3000/api/v1/bids")
         .then(resp => resp.json())
         .then(bids => {
-            console.log("load bids")
+
             this.filterBids(bids);
         })
     }
 
     filterBids = (bids) => {
-        console.log(this.state.user)
         if (this.state.user) {
             //let temp = bids.slice();
             const filteredBids = bids.filter(bid => bid.user_id === this.state.user.id)
@@ -186,10 +186,9 @@ class App extends Component {
     }
 
     findMyBidTasks = (filteredBids) => {
-        console.log(filteredBids)
         if (this.state.otherTasks) {
             const taskIds = filteredBids.map(bid => bid.task_id);
-            console.log(taskIds)
+
             let temp = [];
             for (let i = 0; i < taskIds.length; i++) {
                 for (const task of this.state.otherTasks) {
@@ -214,7 +213,7 @@ class App extends Component {
         }
         this.setState({
             otherTasks: array
-        }, () => { console.log(array) })
+        })
 
     }
 
@@ -231,7 +230,7 @@ class App extends Component {
                     {/* <Header currentUser={this.state.user}/> */}
                     <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user} otherTasks={this.state.otherTasks} placeBid={this.placeBid} bidTasks={this.state.bidTasks}/>} />
 
-                    
+
 
                     {/* <Route exact path="/" render={routerProps => <Home {...routerProps} createTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user}/>} /> */}
 
