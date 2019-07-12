@@ -23,10 +23,24 @@ class TaskCard extends Component {
 
     }
 
+    getTask = () => {
+        // console.log(task);
+        fetch("http://localhost:3000/api/v1/tasks/" + this.props.task.id)
+        .then(resp => resp.json())
+        .then(task => {
+          this.setState({taskBids: task.bids})
+          console.log(task.bids)
+
+        })
+    }
+
+    componentDidMount() {
+      this.getTask()
+    }
+
     render() {
         let editTaskModal = () => this.setState({ editTaskModalShow: false });
         let removeTaskModal = () => this.setState({ removeTaskModalShow: false });
-        console.log(this.props.task)
 
         return(
             <div className="row">
@@ -59,10 +73,22 @@ class TaskCard extends Component {
                         />
 
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body className="task-card-body-account-page">{this.props.task.description}
-                            <TaskBids
-                              bids={this.props.userTasks.bids}/>
-                              <div>stuff</div>
+                            <Card.Body className="task-card-body-account-page">
+                              <div className="row">
+
+                                <div className="column">      {this.props.task.description}
+                                </div>
+
+                                <div className="task-bids container">
+                                    <div className="row task-bids-header">
+                                        <h2 className="task-bids-title">bids</h2>
+                                    </div>
+                                    <TaskBids
+                                      className="column"
+                                      bids={this.state.taskBids}/>
+                                </div>
+
+                              </div>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

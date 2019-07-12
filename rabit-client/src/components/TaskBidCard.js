@@ -7,34 +7,20 @@ import BidForm from './modals/BidForm'
 
 class TaskBidCard extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+
     }
+  }
 
-    render() {
-
-        console.log(this.props.task.bids)
-        return(
-            <div className="row">
-
-                    <Card className="available-task-card">
-
-                            <Card.Header className="task-card-header-account-page">
-                                stuff
-                            </Card.Header>
-
-                    </Card>
-
-            </div>
-
-        );
-    }
-
-
-
+  render() {
+    return(
+      <div className="task-bid">
+        {"$" + this.props.bid.amount}
+      </div>
+    );
+  }
 }
 
 export default TaskBidCard;
