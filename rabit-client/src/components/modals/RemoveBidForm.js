@@ -8,6 +8,9 @@ class RemoveBidForm extends Component {
   }
 
   handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.onHide();
+    this.props.onRemoveBid(this.props.task)
 
   }
 

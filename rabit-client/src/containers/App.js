@@ -105,19 +105,19 @@ class App extends Component {
     }
 
 
-    getProfile = () => {
-        let token = this.getToken()
-        fetch('http://localhost:3000/api/v1/profile', {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        .then(res => res.json())
-        .then(json => {
-            console.log('profile:', json)
-            this.setState({ user: json.user}, () => {this.loadUserTasks()})
-        })
-    }
+    // getProfile = () => {
+    //     let token = this.getToken()
+    //     fetch('http://localhost:3000/api/v1/profile', {
+    //         headers: {
+    //             'Authorization': 'Bearer ' + token
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(json => {
+    //         console.log('profile:', json)
+    //         this.setState({ user: json.user}, () => {this.loadUserTasks()})
+    //     })
+    // }
 
     saveToken(jwt) {
         localStorage.setItem('jwt', jwt)
@@ -183,6 +183,10 @@ class App extends Component {
             console.log("load bids")
             this.filterBids(bids);
         })
+        
+        // this.setState({
+        //     bidTasks: this.state.user.bids
+        // }, () => { this.removeFromAvailableTasks()})
     }
 
     filterBids = (bids) => {
@@ -234,6 +238,30 @@ class App extends Component {
 
     }
 
+    removeTask = (task) => {
+        // console.log(task);
+        fetch("http://localhost:3000/api/v1/tasks/" + task.id, {
+            method: "DELETE",
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            this.getUser();
+        })
+    }
+
+    removeBid = (task) => {
+        const removingBid = this.state.bidTasks.filter(bidTask => bidTask.id === task.id);
+        // console.log(removingBid[0].id);
+        console.log(task)
+        fetch("http://localhost:3000/api/v1/bids/" + removingBid[0].id, {
+            method: "DELETE",
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            this.getUser();
+        })
+    }
+
 
 
     render() {
@@ -245,7 +273,7 @@ class App extends Component {
 
                     <Header user={this.state.user} />
                     {/* <Header currentUser={this.state.user}/> */}
-                    <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user} otherTasks={this.state.otherTasks} placeBid={this.placeBid} bidTasks={this.state.bidTasks}/>} />
+                    <Route exact path="/" render={routerProps => <Home {...routerProps} onCreateTask={this.createTask} userTasks={this.state.userTasks} onEditTask={this.editTask} user={this.state.user} otherTasks={this.state.otherTasks} placeBid={this.placeBid} bidTasks={this.state.bidTasks} onRemoveTask={this.removeTask} onRemoveBid={this.removeBid}/>} />
 
                     
 

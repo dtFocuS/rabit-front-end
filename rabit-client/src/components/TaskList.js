@@ -18,7 +18,7 @@ class TaskList extends Component {
             <React.Fragment>
                 {
                     this.props.userTasks.map(task =>
-                        <TaskCard key={task.id} task={task} onEditTask={this.props.onEditTask}/>
+                        <TaskCard key={task.id} task={task} onEditTask={this.props.onEditTask} onRemoveTask={this.props.onRemoveTask}/>
                     )
                 }
             </React.Fragment>

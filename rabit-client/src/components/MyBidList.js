@@ -10,7 +10,7 @@ class MyBidList extends Component {
             <React.Fragment>
                 {
                     this.props.bidTasks.map(task =>
-                        <MyBidCard key={task.id} task={task} onPlaceBid={this.props.onPlaceBid} />
+                        <MyBidCard key={task.id} task={task} onPlaceBid={this.props.onPlaceBid} onRemoveBid={this.props.onRemoveBid}/>
                     )
                 }
             </React.Fragment>
