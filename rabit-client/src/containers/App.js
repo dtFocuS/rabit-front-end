@@ -64,9 +64,9 @@ class App extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     this.getProfile()
-    // }
+    componentDidMount() {
+        this.getProfile()
+    }
 
     getProfile = () => {
         let token = this.getToken()
@@ -78,7 +78,7 @@ class App extends Component {
         .then(res => res.json())
         .then(json => {
             console.log('profile:', json)
-            this.setState({ user: json.user, userTasks: json.user.tasks}, () => {this.loadUserTasks()})
+            this.setState({ user: json.user}, () => {this.loadUserTasks()})
         })
     }
 
@@ -91,10 +91,12 @@ class App extends Component {
     }
 
     loadUserTasks = () => {
+      if (this.state.user) {
         let temp = this.state.user.tasks.slice().reverse();
         this.setState({
             userTasks: temp
         })
+      }
     }
 
 
@@ -148,7 +150,7 @@ class App extends Component {
         .then(resp => resp.json())
         .then(task => {
             console.log(task)
-            this.getProfile() 
+            this.getProfile()
         })
 
     }
