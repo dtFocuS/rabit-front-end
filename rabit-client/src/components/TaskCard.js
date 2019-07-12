@@ -61,7 +61,7 @@ class TaskCard extends Component {
                         <Accordion.Collapse eventKey="0">
                             <Card.Body className="task-card-body-account-page">{this.props.task.description}
                             <TaskBids
-                              bids={this.props.userTasks.bids}/>
+                              bids={this.props.userTasks}/>
                               <div>stuff</div>
                             </Card.Body>
                         </Accordion.Collapse>

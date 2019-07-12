@@ -21,7 +21,8 @@ class App extends Component {
             user_id: null,
             userTasks: [],
             otherTasks:[],
-            bidTasks: []
+            bidTasks: [],
+            allTasks: []
         }
     }
 
@@ -74,10 +75,10 @@ class App extends Component {
         })
     }
 
-    componentDidMount() {
-        this.getProfile()
+    // componentDidMount() {
+    //     this.getProfile()
 
-    }
+    // }
 
     loadOtherTasks = () => {
         fetch('http://localhost:3000/api/v1/tasks')
@@ -89,6 +90,7 @@ class App extends Component {
         if (this.state.user) {
             let temp = tasks.slice();
             const filteredTasks = temp.filter(task => task.user_id !== this.state.user.id)
+            console.log(filteredTasks)
             this.setState({
                 otherTasks: filteredTasks
             }, () => { this.loadUserBids();})
@@ -136,6 +138,17 @@ class App extends Component {
 
     componentDidMount() {
       this.getUser()
+      this.loadAllTasks();
+    }
+
+    loadAllTasks = () => {
+        fetch("http://localhost:3000/api/v1/tasks")
+        .then(resp => resp.json())
+        .then(json => {
+            this.setState({
+                allTasks: json
+            })
+        })
     }
 
 
@@ -177,12 +190,12 @@ class App extends Component {
     }
 
     findMyBidTasks = (filteredBids) => {
-        if (this.state.otherTasks) {
+        //if (this.state.otherTasks) {
             const taskIds = filteredBids.map(bid => bid.task_id);
-
+            const otherUserTasks = this.state.allTasks.filter(task => task.id !== this.state.user.id)
             let temp = [];
             for (let i = 0; i < taskIds.length; i++) {
-                for (const task of this.state.otherTasks) {
+                for (const task of otherUserTasks) {
                     if (task.id === taskIds[i]) {
                         temp.push(task);
                     }
@@ -191,11 +204,15 @@ class App extends Component {
             this.setState({
                 bidTasks: temp
             }, () => {this.removeFromAvailableTasks()})
-        }
+        //}
     }
 
     removeFromAvailableTasks = () => {
-        let array = this.state.otherTasks.slice();
+        //let array = this.state.otherTasks.slice();
+        //let array = this.state.otherTasks.slice();
+        const array = this.state.allTasks.filter(task => task.user_id !== this.state.user.id);
+        console.log(this.state.otherTasks)
+        //const array = otherUserTasks
         for (let i = 0; i < this.state.bidTasks.length; i ++) {
             var index = array.indexOf(this.state.bidTasks[i]);
             if (index > -1) {
@@ -223,7 +240,7 @@ class App extends Component {
         const removingBid = this.state.bidTasks.filter(bidTask => bidTask.id === task.id);
         // console.log(removingBid[0].id);
         console.log(task)
-        fetch("http://localhost:3000/api/v1/bids/" + removingBid[0].id, {
+        fetch("http://localhost:3000/api/v1/bids/" + task.bids[0].id, {
             method: "DELETE",
         })
         .then(resp => resp.json())
