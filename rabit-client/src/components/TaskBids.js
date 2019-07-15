@@ -11,7 +11,6 @@ class YourTasksBids extends Component {
         return (
             <React.Fragment>
                 {
-
                     this.props.bids ? this.props.bids.map(bid =>
                         <TaskBidCard key={bid.id} bid={bid} />
                     ) : null
