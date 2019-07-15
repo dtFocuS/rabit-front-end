@@ -132,7 +132,7 @@ class App extends Component {
     componentDidMount() {
       this.getUser()
       this.loadAllTasks();
-      this.loadUserBids();
+      //this.loadUserBids();
     }
 
     loadAllTasks = () => {
