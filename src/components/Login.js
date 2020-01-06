@@ -4,6 +4,9 @@ import SignupForm from './modals/SignupForm';
 
 import { BrowserRouter as Route, withRouter } from 'react-router-dom';
 
+const localHost = "http://localhost:3000/";
+const URL = 'https://rabit-backend.herokuapp.com/';
+
 class Login extends Component {
 
 	state = {
@@ -23,7 +26,7 @@ class Login extends Component {
 		let username = this.username.current.value
 		let password = this.password.current.value
 
-		fetch('http://localhost:3000/api/v1/login', {
+		fetch(URL + 'api/v1/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

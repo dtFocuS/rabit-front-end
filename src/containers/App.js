@@ -12,7 +12,7 @@ import Open from '../components/Open';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const URL = "https://rabit-backend.herokuapp.com/";
-const localhost = "http://localhost:3000/";
+const localHost = "http://localhost:3000/";
 
 
 class App extends Component {
