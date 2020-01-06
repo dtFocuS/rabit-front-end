@@ -11,6 +11,9 @@ import Open from '../components/Open';
 // import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+const URL = "https://rabit-backend.herokuapp.com/";
+const localhost = "http://localhost:3000/";
+
 
 class App extends Component {
 
@@ -32,7 +35,7 @@ class App extends Component {
 
     getUser = () => {
       let token = this.getToken()
-      fetch('http://localhost:3000/api/v1/profile', {
+      fetch(URL + 'api/v1/profile', {
         headers: {
           'Authorization': 'Bearer ' + token
         }
@@ -53,7 +56,7 @@ class App extends Component {
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
 
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
-        fetch("http://localhost:3000/api/v1/tasks", {
+        fetch(URL + "api/v1/tasks", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -74,7 +77,7 @@ class App extends Component {
 
 
     loadOtherTasks = () => {
-        fetch('http://localhost:3000/api/v1/tasks')
+        fetch(URL + 'api/v1/tasks')
         .then(resp => resp.json())
         .then(tasks => this.filterOtherTasks(tasks))
     }
@@ -116,7 +119,7 @@ class App extends Component {
         const time = newTask.hours + ":" + newTask.minutes + " " + newTask.ampm;
 
         const dollarAmount = parseFloat(newTask.prefer_cost).toFixed(2);
-        fetch("http://localhost:3000/api/v1/tasks/" + newTask.task_id, {
+        fetch(URL + "api/v1/tasks/" + newTask.task_id, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -136,7 +139,7 @@ class App extends Component {
     }
 
     loadAllTasks = () => {
-        fetch("http://localhost:3000/api/v1/tasks")
+        fetch(URL + "api/v1/tasks")
         .then(resp => resp.json())
         .then(json => {
             this.setState({
@@ -149,7 +152,7 @@ class App extends Component {
     placeBid = (newBid) => {
 
         const dollarAmount = parseFloat(newBid.amount).toFixed(2);
-        fetch("http://localhost:3000/api/v1/bids", {
+        fetch(URL + "api/v1/bids", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -164,11 +167,11 @@ class App extends Component {
 
     loadUserBids = () => {
 
-        // fetch("http://localhost:3000/api/v1/bids")
+        // fetch("api/v1/bids")
         // .then(resp => resp.json())
         // .then(bids => {
 
-        // fetch("http://localhost:3000/api/v1/bids")
+        // fetch("api/v1/bids")
         // .then(resp => resp.json())
         // .then(bids => {
 
@@ -248,7 +251,7 @@ class App extends Component {
 
     removeTask = (task) => {
         // console.log(task);
-        fetch("http://localhost:3000/api/v1/tasks/" + task.id, {
+        fetch(URL + "api/v1/tasks/" + task.id, {
             method: "DELETE",
         })
         .then(resp => resp.json())
@@ -261,7 +264,7 @@ class App extends Component {
         const removingBid = this.state.bidTasks.filter(bidTask => bidTask.id === task.id);
         const  bidIds = task.bids.filter(bid => bid.user_id === this.state.user.id)
         console.log(bidIds)
-        fetch("http://localhost:3000/api/v1/bids/" + bidIds[0].id, {
+        fetch(URL + "api/v1/bids/" + bidIds[0].id, {
             method: "DELETE",
         })
         .then(resp => resp.json())
