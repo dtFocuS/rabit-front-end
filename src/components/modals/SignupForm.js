@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Modal, Button,InputGroup, FormControl, Form, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Route, withRouter } from 'react-router-dom';
 
+const localHost = "http://localhost:3000/";
+const URL = "https://rabit-backend.herokuapp.com/";
+
 
 class SignupForm extends Component {
 
@@ -32,7 +35,7 @@ class SignupForm extends Component {
 
 
     createUser = () => {
-      fetch('http://localhost:3000/api/v1/users', {
+      fetch(URL + 'api/v1/users', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
