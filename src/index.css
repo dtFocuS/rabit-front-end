@@ -1,0 +1,481 @@
+/* UNIVERSAL CSS */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+a, span {
+  color: #666666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+input.minutes {
+  width: 70px;
+}
+
+.displayErrors input:invalid, .displayErrors select:invalid {
+  border-color: pink;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+
+/* HEADER CSS */
+
+/* background: #258EA6; #2274A5*/
+
+#header-band {
+  background: #23395B;
+  border-color: black;
+  border-bottom: .5px solid #e6e6e6;
+  height: 120px;
+}
+
+#authentication-links {
+  float: right;
+  margin-right: 50px;
+  margin-top:11px;
+  font-size: 23px;
+  font-weight: lighter;
+}
+
+#header-dropdown-button {
+  float:right;
+  margin-right: 35px;
+  margin-top:7px;
+}
+
+#dropdown-menu-align-right {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+#rabit-logo-wrapper {
+  float:left;
+  margin-left: 30px;
+}
+#rabit-logo {
+  height: 120px;
+}
+
+
+/* HOME CSS */
+
+#home {
+
+  max-width: 1100px;
+  margin: auto;
+}
+
+#create-task-button {
+  float:right;
+  margin-right:50px;
+  margin-top: 9px;
+  font-weight: lighter;
+}
+
+#account-link {
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+#account-name {
+  font-weight: lighter;
+}
+
+#avatar {
+  height: 50px;
+  margin-right: 10px;
+  width: auto;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+#your-tasks {
+  width: 1017px;
+  margin: auto;
+}
+
+#available-tasks {
+  margin-top: 40px;
+  float:right;
+  margin-right: 51px;
+  background-color: #FEFFFE;
+  width: 477px;
+  border-radius: 3px;
+  font-weight: lighter;
+}
+
+.task-header {
+
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
+  color: #666666;
+  padding: 20px;
+}
+
+#your-tasks-title, #available-tasks-title {
+  font-weight: lighter;
+}
+
+.task {
+  border-bottom: .5px solid #e6e6e6;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 47px;
+}
+
+.your-task-card {
+  width: 1010px;
+  border:none;
+  margin-left: 40px;
+  margin-bottom: -20px;
+}
+.available-task-card {
+  width: 477px;
+
+  border:none;
+
+}
+
+.task-title {
+  margin-right: 10px;
+  color: black;
+  font-size: 25px;
+  margin-top: -10px;
+}
+.task-time {
+  margin-right: 10px;
+  font-size: 10px;
+  padding-top: 15px;
+  margin-top: -7px;
+}
+.edit-task {
+  width: 45px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #70A83F;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -75px;
+}
+
+.remove-task {
+  width: 59px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #C40A07;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -62px;
+  left: -10px;
+}
+
+.remove-bid {
+  width: 59px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #C40A07;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -62px;
+  left: -10px;
+}
+
+.my-bid-update {
+  width: 55px;
+  height: 22px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background-color: #70A83F;
+  border-radius: 7px;
+  font-size: 12px;
+  margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -75px;
+}
+
+.bid-task {
+  width: 21px;
+  height: 21px;
+  margin-left: auto;
+  margin-right: 5px;
+  color: white;
+  border:none;
+  border-radius: 50%;
+  border: none;
+  background-color: #70A83F;
+  border-radius: 50%;
+  font-size: 9px;
+  text-align: center;
+  margin-top: 0px;
+  position: relative;
+  top: -40px;
+  left: -15px;
+}
+
+
+.task-bids{
+  width: 400px;
+  margin-left: auto;
+  margin-right: 0px;
+}
+.task-bids-header {
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
+  color: #666666;
+  padding: 5px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.task-bids-title {
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+/* ACCOUNT CSS */
+
+#create-task-button-account-page {
+  float:right;
+  margin-top: 15px;
+  margin-right: 210px;
+  font-weight: lighter;
+}
+
+#account-header {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#avatar-account-page {
+  height: auto;
+  width: 100px;
+  margin-right: 10px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+#username-account-page {
+  margin-top: -13px;
+  font-size: 22px;
+}
+
+#username-account-page, #fullname-account-page {
+  font-weight: lighter;
+}
+
+#edit-account-button {
+  font-weight: lighter;
+  background: none;
+  border: none;
+  margin-top: -22px;
+  position: relative;
+  left: -6px;
+  color: #5C80BC;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+#your-tasks-account-page {
+  width:480px;
+
+  margin-top: 40px;
+  background-color: #FEFFFE;
+  border-radius: 3px;
+  margin-bottom: 50px;
+  font-weight: lighter;
+}
+
+#avatar-container-account-page {
+  float:left;
+  width: 125px;
+
+}
+
+.task-header-account-page {
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 10px;
+  color: #666666;
+  padding: 20px;
+}
+
+.task-card-account-page {
+  width: 800px;
+  border:none;
+}
+
+.task-card-header-account-page {
+  border-bottom: .5px solid #e6e6e6;
+  height: 47px;
+  font-weight: lighter;
+  background: none;
+}
+
+.task-card-body-account-page {
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: 10px;
+  margin-top: -50px;
+  margin-bottom: 5px;
+}
+
+
+/* LOGIN CSS */
+
+.App {
+  text-align: center;
+  margin-top: 30px;
+}
+
+::placeholder {
+
+  color: lightgrey;
+
+}
+
+#username-entry, #password-entry {
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+#logout-button, #submit-button {
+  font-size: 25px;
+  border-radius: 7px;
+  background-color: #70A83F;
+  border: none;
+  color: white;
+  height: 50px;
+  width: 100px;
+}
+
+#logged-in-username {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+#sign-up {
+  font-weight: lighter;
+}
+#sign-up-button {
+  cursor: pointer;
+}
+
+/* OPEN CSS */
+
+#your-open-tasks-title {
+  font-weight: lighter;
+  margin: auto;
+}
+
+.open-task-card {
+  width: 700px;
+  border:none;
+}
+
+#open-tasks {
+  margin-top: 40px;
+  background-color: #FEFFFE;
+  width: 700px;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: lighter;
+}
+
+.open-task-header {
+
+  border: .5px solid #e6e6e6;
+  background-color: whitesmoke;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  margin-bottom: 5px;
+  color: #666666;
+  padding: 20px;
+}
+
+/* MODALS CSS */
+
+.modal-buttons {
+  background-color: #70A83F;
+  border: none;
+  float: right;
+  margin-right: 20px;
+}
+.modal-buttons:hover {
+  background-color: green;
+}
+
+.modal-delete-buttons {
+  background-color: #C40A07;
+  border: none;
+}
+
+.modal-delete-buttons:hover {
+  background-color: #9B0806;
+}
